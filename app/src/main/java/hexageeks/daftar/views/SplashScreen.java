@@ -1,5 +1,6 @@
 package hexageeks.daftar.views;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,9 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        Intent loginIntent = new Intent(this, LoginScreen.class);
+        startActivity(loginIntent);
+        finish();
 
     }
 }

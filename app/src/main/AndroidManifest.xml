@@ -11,12 +11,16 @@
 
         <activity
             android:name=".views.SplashScreen"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".views.LoginScreen"
+            android:theme="@style/NoActionBarTheme"></activity>
     </application>
 </manifest>

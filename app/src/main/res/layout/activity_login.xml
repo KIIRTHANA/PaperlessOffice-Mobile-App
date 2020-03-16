@@ -50,7 +50,7 @@
                     android:src="@drawable/logo_transparent" />
 
                 <EditText
-                    android:id="@+id/username"
+                    android:id="@+id/login_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edit_style"
@@ -71,7 +71,7 @@
 
 
                 <EditText
-                    android:id="@+id/password"
+                    android:id="@+id/login_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/password"
@@ -91,7 +91,7 @@
 
 
                 <Button
-                    android:id="@+id/login"
+                    android:id="@+id/login_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_right_16"
@@ -118,12 +118,12 @@
                     android:textSize="@dimen/text_20" />
 
                 <ProgressBar
-                    android:id="@+id/loading"
+                    android:id="@+id/login_loding"
                     style="?android:attr/progressBarStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
 
             </LinearLayout>
 

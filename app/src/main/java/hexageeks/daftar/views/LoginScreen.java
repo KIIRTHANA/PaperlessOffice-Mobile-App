@@ -1,6 +1,7 @@
 package hexageeks.daftar.views;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,21 +9,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import hexageeks.daftar.R;
 import hexageeks.daftar.backend.ServerConfig;
@@ -54,7 +51,7 @@ public class LoginScreen extends Activity {
 
                     loading.setVisibility(View.VISIBLE);
 
-                    HashMap<String, String> jsonReq = new HashMap<String, String>();
+                    HashMap<String, String> jsonReq = new HashMap<>();
                     jsonReq.put("email", String.valueOf(usernameBtn.getText()));
                     jsonReq.put("password", String.valueOf(passBtn.getText()));
 
@@ -67,7 +64,12 @@ public class LoginScreen extends Activity {
                             try {
                                 String token = response.getString("token");
 
-                                // TODO: Store token in SharedPreferences
+                                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("UserPref", MODE_PRIVATE);
+                                SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                                myEdit.clear();
+                                myEdit.putString("userToken", token);
+                                myEdit.apply();
+                                myEdit.commit();
 
                                 // TODO: Redirect to Dashboard
 
@@ -97,4 +99,5 @@ public class LoginScreen extends Activity {
             }
         });
     }
+
 }

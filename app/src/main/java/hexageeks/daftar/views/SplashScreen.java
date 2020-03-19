@@ -46,7 +46,9 @@ public class SplashScreen extends AppCompatActivity {
             JsonObjectRequest loginRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    // TODO: Redirect to Dashboard
+                    Intent dashboardIntent = new Intent(getApplicationContext(), Dashboard.class);
+                    startActivity(dashboardIntent);
+                    finish();
 
                     Log.v(TAG, "Login Successful: ");
                 }

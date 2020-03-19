@@ -1,6 +1,7 @@
 package hexageeks.daftar.views;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -71,7 +72,9 @@ public class LoginScreen extends Activity {
                                 myEdit.apply();
                                 myEdit.commit();
 
-                                // TODO: Redirect to Dashboard
+                                Intent dashboardIntent = new Intent(getApplicationContext(), Dashboard.class);
+                                startActivity(dashboardIntent);
+                                finish();
 
                                 Log.v(TAG, "Login Successful");
                             } catch (JSONException e) {

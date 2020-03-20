@@ -55,9 +55,12 @@ public class Dashboard extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_photo_camera_white_24dp);
 
+        tabLayout.getTabAt(1).select();
+
         LinearLayout layout = ((LinearLayout) ((LinearLayout) tabLayout.getChildAt(0)).getChildAt(0));
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) layout.getLayoutParams();
         layoutParams.weight = 0.25f;
         layout.setLayoutParams(layoutParams);
+
     }
 }

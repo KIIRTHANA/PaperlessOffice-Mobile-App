@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Daftar</string>
     <string name="title_activity_dashboard">Dashboard</string>
+    <string name="applications">Applications</string>
+    <string name="application_name">TextView</string>
+    <string name="submitted_to">TextView</string>
+    <string name="view">View</string>
 
 
 </resources>

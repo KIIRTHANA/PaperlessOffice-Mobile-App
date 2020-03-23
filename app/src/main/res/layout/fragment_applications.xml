@@ -6,17 +6,18 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="67dp">
 
             <Button
                 android:id="@+id/view_button"
-                android:layout_width="87dp"
-                android:layout_height="40dp"
+                android:layout_width="71dp"
+                android:layout_height="41dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginBottom="5dp"
@@ -25,12 +26,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView3"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.75" />
+                app:layout_constraintVertical_bias="0.619" />
 
             <TextView
                 android:id="@+id/textview1"
-                android:layout_width="301dp"
-                android:layout_height="27dp"
+                android:layout_width="295dp"
+                android:layout_height="32dp"
                 android:layout_marginStart="21dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="10dp"
@@ -64,10 +65,17 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="342dp"
+        android:layout_marginTop="463dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="17dp"
         android:clickable="true"
+        app:backgroundTint="#E91E63"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
         app:srcCompat="@drawable/ic_plus"
-        tools:layout_editor_absoluteX="342dp"
-        tools:layout_editor_absoluteY="530dp"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

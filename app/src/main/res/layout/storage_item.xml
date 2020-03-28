@@ -4,7 +4,10 @@
         android:id="@+id/card"
         android:layout_width="212dp"
         android:layout_height="173dp"
-        android:layout_margin="8dp">
+        android:layout_margin="8dp"
+
+    >
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,7 +39,8 @@
                     android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Application title" />
+                    android:text="Application title"
+                    />
             </LinearLayout>
 
             <!-- Buttons -->

@@ -1,6 +1,7 @@
 package hexageeks.daftar.views;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import hexageeks.daftar.R;
+import hexageeks.daftar.models.User;
 import hexageeks.daftar.views.dashboard.ApplicationsFragment;
 import hexageeks.daftar.views.dashboard.ScanFragment;
 import hexageeks.daftar.views.dashboard.StorageFragment;
@@ -25,7 +27,7 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.inflateMenu(R.menu.dashboard_menu);
 
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -43,20 +45,19 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-        ViewPager  viewPager = (ViewPager) findViewById(R.id.view_pager);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        ViewPager  viewPager = findViewById(R.id.view_pager);
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
 
         TabAdapter adapter = new TabAdapter(getSupportFragmentManager(), this);
         adapter.addFragment(new ScanFragment(), "Scan");
         adapter.addFragment(new ApplicationsFragment(), "Applications");
         adapter.addFragment(new StorageFragment(), "Storage");
         viewPager.setAdapter(adapter);
+        viewPager.setCurrentItem(1);
 
         tabLayout.setupWithViewPager(viewPager);
+
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_photo_camera_white_24dp);
-
-        tabLayout.getTabAt(1).select();
-
         LinearLayout layout = ((LinearLayout) ((LinearLayout) tabLayout.getChildAt(0)).getChildAt(0));
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) layout.getLayoutParams();
         layoutParams.weight = 0.25f;

@@ -48,8 +48,8 @@ public class Dashboard extends AppCompatActivity {
 
         TabAdapter adapter = new TabAdapter(getSupportFragmentManager(), this);
         adapter.addFragment(new ScanFragment(), "Scan");
+        adapter.addFragment(new StorageFragment(), "Cloud Storage");
         adapter.addFragment(new ApplicationsFragment(), "Applications");
-        adapter.addFragment(new StorageFragment(), "Storage");
         viewPager.setAdapter(adapter);
 
         tabLayout.setupWithViewPager(viewPager);

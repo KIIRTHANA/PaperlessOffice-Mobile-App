@@ -1,18 +1,33 @@
 package hexageeks.daftar.models;
 
-import com.google.gson.annotations.SerializedName;
-import java.io.Serializable;
-
-public class User implements Serializable {
-
-    @SerializedName("_id")
-    public Integer id;
-    @SerializedName("first_name")
+public class User {
+    public String id;
     public String fName;
-    @SerializedName("last_name")
     public String lName;
-    @SerializedName("dob")
     public String dob;
-    @SerializedName("role")
     public String role;
+
+    public static User instance = null;
+
+    private User(String id, String fName, String lName, String dob, String role) {
+        this.id = id;
+        this.fName = fName;
+        this.lName = lName;
+        this.dob = dob;
+        this.role = role;
+    }
+
+    public static User getInstance() {
+        return instance;
+    }
+
+    public static User setInstance(String id, String fName, String lName, String dob, String role) {
+        instance = new User(id, fName,lName, dob, role);
+        return instance;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("User: [ %s, %s, %s, %s, %s]", id, fName, lName, dob, role);
+    }
 }

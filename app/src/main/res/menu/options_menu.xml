@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/Settings"
+
+    <item android:id="@+id/search_button"
+        android:icon="@drawable/ic_search_icon"
+        android:title="search menu"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/Settings_menu"
         android:icon="@drawable/ic_person"
         android:title="Settings"
-        app:showAsAction="ifRoom"
-        
-        />
+        app:showAsAction="always"
+        >
+        <menu>
+            <item android:id="@+id/sub_item_settings"
+                android:title="Settings">
+            </item>
+            <item android:id="@+id/sub_item_logout"
+                android:title="Logout"/>
+            <item android:id="@+id/sub_item_feedback"
+                android:title="Help &amp; Feeback"/>
+
+        </menu>
+
+    </item>
+
+
 
 </menu>

@@ -28,7 +28,7 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.inflateMenu(R.menu.dashboard_menu);
+        toolbar.inflateMenu(R.menu.options_menu);
 
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
 
@@ -36,8 +36,8 @@ public class Dashboard extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
 
                 switch (item.getItemId()) {
-                    case R.id.dashboard_menu_logout:
-                        // TOOD: LOGOUT
+                    case R.id.Settings_menu:
+
                         break;
                 }
 

@@ -69,11 +69,13 @@ public class SplashScreen extends AppCompatActivity {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
+                    try{
                     Log.e(TAG, "Failed: " + error
                             + "\nStatus Code " + error.networkResponse.statusCode
                             + "\nCause " + error.getCause()
                             + "\nnetworkResponse " + error.networkResponse.data.toString()
-                            + "\nmessage" + error.getMessage());
+                            + "\nmessage" + error.getMessage());}
+                    catch (Exception e){}
 
                     Intent loginIntent = new Intent(getApplicationContext(), LoginScreen.class);
                     startActivity(loginIntent);

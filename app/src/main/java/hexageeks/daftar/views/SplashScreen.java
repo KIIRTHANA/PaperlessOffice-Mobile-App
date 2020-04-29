@@ -51,7 +51,7 @@ public class SplashScreen extends AppCompatActivity {
                     try {
                         User.setInstance(response.getJSONObject("_id").getString("$oid"), response.getString("first_name"),
                                 response.getString("last_name"), response.getString("dob"),
-                                response.getString("role"));
+                                response.getString("role"), token);
 
                         Intent dashboardIntent = new Intent(getApplicationContext(), Dashboard.class);
                         startActivity(dashboardIntent);

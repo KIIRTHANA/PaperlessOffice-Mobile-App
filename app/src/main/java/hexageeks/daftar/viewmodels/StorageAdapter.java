@@ -1,4 +1,77 @@
 package hexageeks.daftar.viewmodels;
 
-public class StorageAdapter {
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.google.android.material.button.MaterialButton;
+
+import androidx.recyclerview.widget.RecyclerView;
+import hexageeks.daftar.R;
+import hexageeks.daftar.models.StorageItem;
+
+
+public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHolder>{
+    private StorageItem[] data;
+
+
+    public StorageAdapter(StorageItem[] data) {
+        this.data = data;
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View listItem= layoutInflater.inflate(R.layout.storage_item, parent, false);
+        ViewHolder viewHolder = new ViewHolder(listItem);
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        final StorageItem storageItem = data[position];
+
+        // TODO: Add image preview for documents
+        //holder.imageView.setImageResource(storageItem[position].getImgId());
+        holder.desc.setText(storageItem.getFileName());
+
+        holder.viewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: View Screen
+            }
+        });
+
+        holder.downloadBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO: Download Screen
+            }
+        });
+    }
+
+
+    @Override
+    public int getItemCount() {
+        return data.length;
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public ImageView img;
+        public TextView desc;
+        public MaterialButton viewBtn;
+        public MaterialButton downloadBtn;
+
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            this.img =  itemView.findViewById(R.id.storage_item_img);
+            this.desc = itemView.findViewById(R.id.storage_item_title);
+            this.viewBtn = itemView.findViewById(R.id.storage_item_view_btn);
+            this.downloadBtn = itemView.findViewById(R.id.storage_view_download_btn);
+        }
+    }
 }

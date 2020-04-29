@@ -1,77 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <com.google.android.material.card.MaterialCardView  xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card"
-        android:layout_width="212dp"
-        android:layout_height="173dp"
-        android:layout_margin="8dp"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
 
     >
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Media -->
+
+        <ImageView
+
+            android:id="@+id/storage_item_img"
+            android:layout_width="match_parent"
+            android:layout_height="82dp"
+            android:contentDescription="preview of application"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_background" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="171dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:orientation="vertical"
+            android:padding="12dp">
 
-            <!-- Media -->
-
-            <ImageView
-
+            <TextView
+                android:id="@+id/storage_item_title"
                 android:layout_width="match_parent"
-                android:layout_height="82dp"
-                android:contentDescription="preview of application"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_background" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="0dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="0dp"
-                android:layout_marginRight="0dp"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Application title"
-                    />
-            </LinearLayout>
-
-            <!-- Buttons -->
-            <LinearLayout
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:orientation="horizontal">
-
-                <com.google.android.material.button.MaterialButton
-                    style="?attr/borderlessButtonStyle"
-                    android:layout_width="102dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="0dp"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:text="VIEW"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-                <com.google.android.material.button.MaterialButton
-                    style="?attr/borderlessButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:text="DOWNLOAD"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-            </LinearLayout>
-
+                android:text="Application title" />
         </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+        <!-- Buttons -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/storage_item_view_btn"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="0dp"
+                android:insetBottom="0dp"
+                android:insetTop="0dp"
+                android:text="VIEW"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/storage_view_download_btn"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:insetBottom="0dp"
+                android:insetTop="0dp"
+                android:text="DOWNLOAD"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

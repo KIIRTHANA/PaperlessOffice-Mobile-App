@@ -47,28 +47,27 @@
 
         <!-- Buttons -->
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="3">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/storage_item_view_btn"
                 style="?attr/borderlessButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="0dp"
-                android:insetBottom="0dp"
-                android:insetTop="0dp"
+                android:layout_weight="1"
                 android:text="VIEW"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/storage_view_download_btn"
                 style="?attr/borderlessButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:insetBottom="0dp"
-                android:insetTop="0dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:text="DOWNLOAD"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
         </LinearLayout>

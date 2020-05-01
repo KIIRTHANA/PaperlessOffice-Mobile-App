@@ -72,8 +72,8 @@ public class LoginScreen extends Activity {
                                 myEdit.apply();
                                 myEdit.commit();
 
-                                Intent dashboardIntent = new Intent(getApplicationContext(), Dashboard.class);
-                                startActivity(dashboardIntent);
+                                Intent splashIntent = new Intent(getApplicationContext(), SplashScreen.class);
+                                startActivity(splashIntent);
                                 finish();
 
                                 Log.v(TAG, "Login Successful");
@@ -85,12 +85,14 @@ public class LoginScreen extends Activity {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             try {
-                            Log.e(TAG, "Failed: " + error
-                                    + "\nStatus Code " + error.networkResponse.statusCode
-                                    + "\nCause " + error.getCause()
-                                    + "\nnetworkResponse " + error.networkResponse.data.toString()
-                                    + "\nmessage" + error.getMessage());}
-                            catch (Exception e){}
+                                Log.e(TAG, "Failed: " + error
+                                        + "\nStatus Code " + error.networkResponse.statusCode
+                                        + "\nCause " + error.getCause()
+                                        + "\nnetworkResponse " + error.networkResponse.data.toString()
+                                        + "\nmessage" + error.getMessage());
+                            } catch (Exception e) {
+
+                            }
 
                             Snackbar.make(findViewById(R.id.login_username), "Invalid Credientials, Please try again.", Snackbar.LENGTH_LONG).show();
                             loading.setVisibility(View.GONE);

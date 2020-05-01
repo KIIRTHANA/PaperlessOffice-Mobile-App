@@ -10,7 +10,7 @@
     <item android:id="@+id/Settings_menu"
         android:icon="@drawable/ic_person"
         android:title="Settings"
-        app:showAsAction="always"
+        app:showAsAction="never"
         >
         <menu>
             <item android:id="@+id/sub_item_settings"

@@ -6,6 +6,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+    app:cardBackgroundColor="#F5F8F5"
+    app:cardElevation="6dp"
 
     >
 
@@ -30,11 +32,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
             android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
             android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
             android:orientation="vertical"
             android:padding="12dp">
 
@@ -42,7 +44,16 @@
                 android:id="@+id/storage_item_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Application title" />
+                android:text="Application title"
+                android:textColor="@color/black_effective" />
+
+            <TextView
+                android:id="@+id/storage_item_descripition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="File Description"
+                android:textColor="@color/light_grey"
+                android:textSize="11sp" />
         </LinearLayout>
 
         <!-- Buttons -->
@@ -50,26 +61,39 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="4">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/storage_item_view_btn"
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginEnd="0dp"
-                android:layout_weight="1"
+                android:layout_weight="1.25"
                 android:text="VIEW"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="9sp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/storage_view_download_btn"
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="2"
                 android:text="DOWNLOAD"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="9sp" />
+
+            <ImageButton
+                android:id="@+id/storage_view_options_button"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:layout_weight="0.75"
+                android:onClick="showDetails"
+                android:src="@drawable/ic_details_button_icon" />
         </LinearLayout>
 
     </LinearLayout>

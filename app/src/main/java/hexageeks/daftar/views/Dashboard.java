@@ -5,7 +5,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -20,7 +22,7 @@ import hexageeks.daftar.views.dashboard.ScanFragment;
 import hexageeks.daftar.views.dashboard.StorageFragment;
 import hexageeks.daftar.views.dashboard.TabAdapter;
 
-public class Dashboard extends AppCompatActivity {
+public class Dashboard extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +52,7 @@ public class Dashboard extends AppCompatActivity {
 
         TabAdapter adapter = new TabAdapter(getSupportFragmentManager(), this);
         adapter.addFragment(new ScanFragment(), "Scan");
-        adapter.addFragment(new StorageFragment(), "Cloud Storage");
+        adapter.addFragment(new StorageFragment(), "Storage");
         adapter.addFragment(new ApplicationsFragment(), "Applications");
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(1);
@@ -63,5 +65,17 @@ public class Dashboard extends AppCompatActivity {
         layoutParams.weight = 0.25f;
         layout.setLayoutParams(layoutParams);
 
+    }
+    // STORAGE ITEM - DETAILS BAR
+    public void showDetails(View view) {
+        PopupMenu details_popup = new PopupMenu(this , view);
+        details_popup.setOnMenuItemClickListener(this);
+        details_popup.inflate(R.menu.options_bar_storage_item);
+        details_popup.show();
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        return false;
     }
 }

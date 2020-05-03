@@ -35,7 +35,8 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHold
 
         // TODO: Add image preview for documents
         //holder.imageView.setImageResource(storageItem[position].getImgId());
-        holder.desc.setText(storageItem.getFileName());
+        holder.fileName.setText(storageItem.getFileName());
+        holder.desc.setText(storageItem.getFileDescription());
 
         holder.viewBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +62,7 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView img;
+        public TextView fileName;
         public TextView desc;
         public MaterialButton viewBtn;
         public MaterialButton downloadBtn;
@@ -69,6 +71,7 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHold
         public ViewHolder(View itemView) {
             super(itemView);
             this.img =  itemView.findViewById(R.id.storage_item_img);
+            this.fileName = itemView.findViewById(R.id.storage_item_description);
             this.desc = itemView.findViewById(R.id.storage_item_title);
             this.viewBtn = itemView.findViewById(R.id.storage_item_view_btn);
             this.downloadBtn = itemView.findViewById(R.id.storage_view_download_btn);

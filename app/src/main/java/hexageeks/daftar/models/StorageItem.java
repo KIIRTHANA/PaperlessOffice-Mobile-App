@@ -3,6 +3,8 @@ package hexageeks.daftar.models;
 import java.time.LocalDateTime;
 import java.util.Date;
 
+import static hexageeks.daftar.backend.ServerConfig.host;
+
 public class StorageItem {
     private final String id;
     private final String fileName;
@@ -38,7 +40,7 @@ public class StorageItem {
 
     // TODO: Bringup file URL
     private String getFileUrl() {
-        return fileUrl;
+        return host + "/storage/" + id + "?download";
     }
 
     public String getVisibility() {

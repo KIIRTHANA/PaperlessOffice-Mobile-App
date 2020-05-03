@@ -71,8 +71,8 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHold
         public ViewHolder(View itemView) {
             super(itemView);
             this.img =  itemView.findViewById(R.id.storage_item_img);
-            this.fileName = itemView.findViewById(R.id.storage_item_description);
-            this.desc = itemView.findViewById(R.id.storage_item_title);
+            this.fileName = itemView.findViewById(R.id.storage_item_title);
+            this.desc = itemView.findViewById(R.id.storage_item_description);
             this.viewBtn = itemView.findViewById(R.id.storage_item_view_btn);
             this.downloadBtn = itemView.findViewById(R.id.storage_view_download_btn);
         }

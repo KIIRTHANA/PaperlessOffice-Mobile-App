@@ -67,33 +67,38 @@
                 android:id="@+id/storage_item_view_btn"
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="0dp"
+                app:iconGravity="textStart"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="0dp"
-                android:layout_weight="1.25"
-                android:text="VIEW"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="9sp" />
+                android:layout_weight="1"
+                app:icon="@drawable/ic_view_icon"
+                />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/storage_view_download_btn"
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="2"
-                android:text="DOWNLOAD"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="9sp" />
+                app:icon="@drawable/ic_download_button"
+                android:layout_weight="1"
+                app:iconGravity="textStart" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/storage_view_share_btn"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:iconGravity="textStart"
+                app:icon="@drawable/ic_share_button"/>
 
-            <ImageButton
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/storage_view_options_button"
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="right"
-                android:layout_weight="0.75"
+                app:iconGravity="textStart"
+                android:layout_weight="1"
                 android:onClick="showDetails"
-                android:src="@drawable/ic_details_button_icon" />
+                app:icon="@drawable/ic_details_button_icon" />
         </LinearLayout>
 
     </LinearLayout>

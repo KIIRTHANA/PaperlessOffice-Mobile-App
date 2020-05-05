@@ -11,6 +11,7 @@ import com.google.android.material.button.MaterialButton;
 import androidx.recyclerview.widget.RecyclerView;
 import hexageeks.daftar.R;
 import hexageeks.daftar.models.StorageItem;
+import hexageeks.daftar.utils.FileUtils;
 
 
 public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHolder>{
@@ -33,8 +34,17 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {
         final StorageItem storageItem = data[position];
 
-        // TODO: Add image preview for documents
-        //holder.imageView.setImageResource(storageItem[position].getImgId());
+        // TODO: Bringup preview of FileType.PDF
+        switch (storageItem.getFileType()) {
+            case IMAGE:
+                FileUtils.loadImageFromUrl(holder.previewImg.getContext(), holder.previewImg, storageItem.getFileUrl());
+                break;
+
+            default:
+                holder.previewImg.setImageResource(R.drawable.pdf_file);
+        }
+
+
         holder.fileName.setText(storageItem.getFileName());
         holder.desc.setText(storageItem.getFileDescription());
 
@@ -44,7 +54,6 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHold
                 //TODO: View Screen
             }
         });
-
         holder.downloadBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -61,7 +70,7 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHold
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView img;
+        public ImageView previewImg;
         public TextView fileName;
         public TextView desc;
         public MaterialButton viewBtn;
@@ -70,7 +79,7 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHold
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.img =  itemView.findViewById(R.id.storage_item_img);
+            this.previewImg =  itemView.findViewById(R.id.storage_item_img);
             this.fileName = itemView.findViewById(R.id.storage_item_title);
             this.desc = itemView.findViewById(R.id.storage_item_description);
             this.viewBtn = itemView.findViewById(R.id.storage_item_view_btn);

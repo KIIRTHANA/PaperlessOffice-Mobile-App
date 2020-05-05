@@ -11,8 +11,13 @@
         android:icon="@mipmap/ic_app_icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_app_icon"
+<<<<<<< HEAD
         android:theme="@style/AppTheme">
         <activity android:name=".views.dashboard.Upload_Files"></activity>
+=======
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+>>>>>>> 1385f73ad2544c02c298f1cbe9922b95bbd447d4
         <activity
             android:name=".views.Dashboard"
             android:label="@string/title_activity_dashboard"

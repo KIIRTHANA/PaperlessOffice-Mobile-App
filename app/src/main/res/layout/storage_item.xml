@@ -91,14 +91,13 @@
                 app:icon="@drawable/ic_share_button"/>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/storage_view_options_button"
+                android:id="@+id/storage_view_delete_button"
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 app:iconGravity="textStart"
                 android:layout_weight="1"
-                android:onClick="showDetails"
-                app:icon="@drawable/ic_details_button_icon" />
+                app:icon="@drawable/ic_delete_button" />
         </LinearLayout>
 
     </LinearLayout>

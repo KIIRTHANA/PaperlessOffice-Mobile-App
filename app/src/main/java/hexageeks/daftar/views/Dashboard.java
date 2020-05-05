@@ -22,7 +22,7 @@ import hexageeks.daftar.views.dashboard.ScanFragment;
 import hexageeks.daftar.views.dashboard.StorageFragment;
 import hexageeks.daftar.views.dashboard.TabAdapter;
 
-public class Dashboard extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
+public class Dashboard extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,6 @@ public class Dashboard extends AppCompatActivity implements PopupMenu.OnMenuItem
         setContentView(R.layout.activity_dashboard);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.inflateMenu(R.menu.options_menu);
-
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
 
             @Override
@@ -65,17 +63,6 @@ public class Dashboard extends AppCompatActivity implements PopupMenu.OnMenuItem
         layoutParams.weight = 0.25f;
         layout.setLayoutParams(layoutParams);
 
-    }
-    // STORAGE ITEM - DETAILS BAR
-    public void showDetails(View view) {
-        PopupMenu details_popup = new PopupMenu(this , view);
-        details_popup.setOnMenuItemClickListener(this);
-        details_popup.inflate(R.menu.options_bar_storage_item);
-        details_popup.show();
-    }
+    }}
+// STORAGE view - Delete button
 
-    @Override
-    public boolean onMenuItemClick(MenuItem menuItem) {
-        return false;
-    }
-}

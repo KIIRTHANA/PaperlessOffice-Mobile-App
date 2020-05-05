@@ -22,6 +22,7 @@ import java.util.Map;
 
 import hexageeks.daftar.models.StorageItem;
 import hexageeks.daftar.models.User;
+import hexageeks.daftar.utils.FileUtils;
 
 import static hexageeks.daftar.backend.ServerConfig.host;
 
@@ -64,8 +65,9 @@ public class DataProvider {
                         Date d = new Date(Long.parseLong(timestamp));
 
                         data[i] = new StorageItem(obj.getJSONObject("_id").getString("$oid"),
-                                obj.getString("fileName"), obj.getString("fileDescription"),
-                                null, obj.getString("visibility"), obj.getString("creator"),
+                                FileUtils.parseFileType(obj.getString("fileExtension")), obj.getString("fileName"),
+                                obj.getString("fileDescription"),
+                                obj.getString("visibility"), obj.getString("creator"),
                                 d);
                     }
 

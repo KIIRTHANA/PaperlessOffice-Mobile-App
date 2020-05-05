@@ -34,4 +34,7 @@ dependencies {
     def camerax_version = "1.0.0-alpha01"
     implementation "androidx.camera:camera-core:$camerax_version"
     implementation "androidx.camera:camera-camera2:$camerax_version"
+
+    // Custom Libraries
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }

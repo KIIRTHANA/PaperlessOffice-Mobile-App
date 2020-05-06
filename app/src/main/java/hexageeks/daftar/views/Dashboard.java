@@ -30,6 +30,7 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
+
         toolbar.inflateMenu(R.menu.options_menu);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
 

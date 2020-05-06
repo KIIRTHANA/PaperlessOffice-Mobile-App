@@ -37,6 +37,7 @@ public class StorageFragment extends Fragment {
     }
 
     void loadDataToRecyclerView() {
+        // Data gets loaded
         DataProvider.getInstance().getStorageData(getActivity(), new DataProvider.OnResponse<StorageItem[]>() {
                 @Override
                 public void execute(StorageItem[] data) {
@@ -50,4 +51,8 @@ public class StorageFragment extends Fragment {
 
         );
     }
+
+
+
 }
+

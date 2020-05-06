@@ -46,13 +46,13 @@
             android:textSize="16sp"
             android:textColor="@color/colorPrimary">
         </TextView>
+
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="12dp"
-            >
-        </EditText>
+            android:inputType="textMultiLine"></EditText>
     </LinearLayout>
 
     <LinearLayout

@@ -95,13 +95,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"
+            android:layout_marginTop="20dp"
             android:padding="12dp"
-            android:text="UPLOAD"/>
+            android:text="UPLOAD" />
     </LinearLayout>
 
 

@@ -53,8 +53,6 @@ public class DataProvider {
         JsonArrayRequest loginRequest = new JsonArrayRequest(Request.Method.GET, host + "/storage", null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-
-
                 try {
                     StorageItem[] data = new StorageItem[response.length()];
 

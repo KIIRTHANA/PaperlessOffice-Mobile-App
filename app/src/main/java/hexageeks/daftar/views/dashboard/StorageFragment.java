@@ -18,6 +18,7 @@ import hexageeks.daftar.viewmodels.StorageAdapter;
 
 public class StorageFragment extends Fragment {
     private Snackbar snackbar;
+    private RecyclerView storageRecyclerView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -25,11 +26,17 @@ public class StorageFragment extends Fragment {
         snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), "Loading ... Please wait...", Snackbar.LENGTH_INDEFINITE);
         snackbar.setAction("Loading...", null).show();
 
-        final RecyclerView storageRecyclerView = view.findViewById(R.id.storage_recycler);
+        storageRecyclerView = view.findViewById(R.id.storage_recycler);
 
         storageRecyclerView.setHasFixedSize(true);
         storageRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
 
+        loadDataToRecyclerView();
+        return view;
+    }
+
+    void loadDataToRecyclerView() {
+        // Data gets loaded
         DataProvider.getInstance().getStorageData(getActivity(), new DataProvider.OnResponse<StorageItem[]>() {
                     @Override
                     public void execute(StorageItem[] data) {
@@ -42,7 +49,9 @@ public class StorageFragment extends Fragment {
                 }
 
         );
-
-        return view;
     }
+
+
+
 }
+

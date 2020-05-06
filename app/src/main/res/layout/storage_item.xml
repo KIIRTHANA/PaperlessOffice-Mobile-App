@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardBackgroundColor="#F5F8F5"
-    app:cardElevation="6dp"
+    app:cardElevation="4dp"
 
     >
 
@@ -67,10 +67,12 @@
                 android:id="@+id/storage_item_view_btn"
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="0dp"
-                app:iconGravity="textStart"
+                android:padding="12dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                app:iconGravity="textStart"
                 app:icon="@drawable/ic_view_icon"
+
                 />
 
             <com.google.android.material.button.MaterialButton
@@ -78,15 +80,17 @@
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:padding="12dp"
+                app:iconGravity="textStart"
                 app:icon="@drawable/ic_download_button"
-                android:layout_weight="1"
-                app:iconGravity="textStart" />
+                android:layout_weight="1"/>
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/storage_view_share_btn"
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:padding="12dp"
                 app:iconGravity="textStart"
                 app:icon="@drawable/ic_share_button"/>
 
@@ -95,6 +99,7 @@
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:padding="12dp"
                 app:iconGravity="textStart"
                 android:layout_weight="1"
                 app:icon="@drawable/ic_delete_button" />

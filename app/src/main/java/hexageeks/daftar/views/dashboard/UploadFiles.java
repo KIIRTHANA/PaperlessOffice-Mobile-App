@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import hexageeks.daftar.R;
 
-public class Upload_Files extends AppCompatActivity {
+public class UploadFiles extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

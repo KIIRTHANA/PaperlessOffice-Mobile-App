@@ -30,20 +30,7 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-
-                switch (item.getItemId()) {
-                    case R.id.Settings_menu:
-
-                        break;
-                }
-
-                return false;
-            }
-        });
+        toolbar.inflateMenu(R.menu.options_menu);
 
         ViewPager  viewPager = findViewById(R.id.view_pager);
         TabLayout tabLayout = findViewById(R.id.tab_layout);
@@ -63,6 +50,9 @@ public class Dashboard extends AppCompatActivity {
         layoutParams.weight = 0.25f;
         layout.setLayoutParams(layoutParams);
 
-    }}
-// STORAGE view - Delete button
+    }
+
+
+}
+
 

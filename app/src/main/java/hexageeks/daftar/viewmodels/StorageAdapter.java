@@ -11,7 +11,9 @@ import com.google.android.material.button.MaterialButton;
 import androidx.recyclerview.widget.RecyclerView;
 import hexageeks.daftar.R;
 import hexageeks.daftar.models.StorageItem;
-import hexageeks.daftar.utils.FileUtils;
+import hexageeks.daftar.utils.StorageUtils;
+
+import static hexageeks.daftar.utils.StorageUtils.downloadFileFromUrl;
 
 
 public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHolder>{
@@ -31,13 +33,13 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         final StorageItem storageItem = data[position];
 
         // TODO: Bringup preview of FileType.PDF
         switch (storageItem.getFileType()) {
             case IMAGE:
-                FileUtils.loadImageFromUrl(holder.previewImg.getContext(), holder.previewImg, storageItem.getFileUrl());
+                StorageUtils.loadImageFromUrl(holder.previewImg.getContext(), holder.previewImg, storageItem.getFileUrl());
                 break;
 
             default:
@@ -54,11 +56,12 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHold
                 //TODO: View Screen
             }
         });
+
         holder.downloadBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                // TODO: Download Screen
+                downloadFileFromUrl(holder.downloadBtn.getContext(), storageItem);
             }
         });
     }

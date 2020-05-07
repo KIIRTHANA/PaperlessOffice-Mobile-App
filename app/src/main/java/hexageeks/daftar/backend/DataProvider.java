@@ -1,7 +1,6 @@
 package hexageeks.daftar.backend;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
@@ -10,7 +9,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,7 +20,7 @@ import java.util.Map;
 
 import hexageeks.daftar.models.StorageItem;
 import hexageeks.daftar.models.User;
-import hexageeks.daftar.utils.FileUtils;
+import hexageeks.daftar.utils.StorageUtils;
 
 import static hexageeks.daftar.backend.ServerConfig.host;
 
@@ -63,7 +61,8 @@ public class DataProvider {
                         Date d = new Date(Long.parseLong(timestamp));
 
                         data[i] = new StorageItem(obj.getJSONObject("_id").getString("$oid"),
-                                FileUtils.parseFileType(obj.getString("fileExtension")), obj.getString("fileName"),
+                                obj.getString("fileExtension"),
+                                StorageUtils.parseFileType(obj.getString("fileExtension")), obj.getString("fileName"),
                                 obj.getString("fileDescription"),
                                 obj.getString("visibility"), obj.getString("creator"),
                                 d);

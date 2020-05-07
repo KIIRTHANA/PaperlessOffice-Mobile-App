@@ -7,6 +7,6 @@ public class ServerConfig {
     public static final String host = "https://daftar-server.herokuapp.com";
 
     public static void debugMode(Boolean b) {
-        VolleyLog.DEBUG = true;
+        VolleyLog.DEBUG = b;
     }
 }

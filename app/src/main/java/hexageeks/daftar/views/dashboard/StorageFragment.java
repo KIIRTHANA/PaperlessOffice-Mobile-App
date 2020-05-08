@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,7 +23,7 @@ public class StorageFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        LinearLayout view = (LinearLayout) inflater.inflate(R.layout.fragment_storage, container, false);
+        CoordinatorLayout view = (CoordinatorLayout) inflater.inflate(R.layout.fragment_storage, container, false);
         snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), "Loading ... Please wait...", Snackbar.LENGTH_INDEFINITE);
         snackbar.setAction("Loading...", null).show();
 

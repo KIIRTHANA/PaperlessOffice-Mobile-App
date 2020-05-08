@@ -12,9 +12,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_app_icon"
         android:theme="@style/AppTheme">
+
         <activity android:name=".views.dashboard.UploadFiles"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"/>
+
         <activity
             android:name=".views.Dashboard"
             android:label="@string/title_activity_dashboard"

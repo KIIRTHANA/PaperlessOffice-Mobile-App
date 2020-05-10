@@ -1,28 +1,28 @@
 package hexageeks.daftar.views;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.PopupMenu;
 
-import com.google.android.material.tabs.TabLayout;
-
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.tabs.TabLayout;
 
 import hexageeks.daftar.R;
-import hexageeks.daftar.models.User;
 import hexageeks.daftar.views.dashboard.ApplicationsFragment;
 import hexageeks.daftar.views.dashboard.ScanFragment;
 import hexageeks.daftar.views.dashboard.StorageFragment;
 import hexageeks.daftar.views.dashboard.TabAdapter;
+import hexageeks.daftar.views.dashboard.UploadFiles;
+
 
 public class Dashboard extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +44,13 @@ public class Dashboard extends AppCompatActivity {
                 }
 
                 return false;
+
+
             }
         });
 
 
-        ViewPager  viewPager = findViewById(R.id.view_pager);
+        ViewPager viewPager = findViewById(R.id.view_pager);
         TabLayout tabLayout = findViewById(R.id.tab_layout);
 
         TabAdapter adapter = new TabAdapter(getSupportFragmentManager(), this);
@@ -66,9 +68,13 @@ public class Dashboard extends AppCompatActivity {
         layoutParams.weight = 0.25f;
         layout.setLayoutParams(layoutParams);
 
-    }
 
+
+        }
 
 }
+
+
+
 
 

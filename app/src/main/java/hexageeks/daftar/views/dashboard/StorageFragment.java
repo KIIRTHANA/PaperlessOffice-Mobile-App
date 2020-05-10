@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -20,9 +21,11 @@ import hexageeks.daftar.viewmodels.StorageAdapter;
 public class StorageFragment extends Fragment {
     private Snackbar snackbar;
     private RecyclerView storageRecyclerView;
+    public FloatingActionButton floatingActionButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         CoordinatorLayout view = (CoordinatorLayout) inflater.inflate(R.layout.fragment_storage, container, false);
         snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), "Loading ... Please wait...", Snackbar.LENGTH_INDEFINITE);
         snackbar.setAction("Loading...", null).show();
@@ -35,6 +38,8 @@ public class StorageFragment extends Fragment {
         loadDataToRecyclerView();
 
         return view;
+
+
     }
 
     void loadDataToRecyclerView() {
@@ -52,6 +57,10 @@ public class StorageFragment extends Fragment {
 
         );
     }
+
+
+
+
 
 
 

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FBFCFD"
     android:orientation="vertical"
     android:padding="8dp">
 
@@ -11,20 +12,26 @@
         android:id="@+id/storage_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#313131" />
+        android:background="#FDFBFB" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fab_upload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:width="@dimen/bottom_navigation_text_size_active"
         android:background="#00EBE7E7"
-        android:text="Upload"
-        app:backgroundTint="#C338DB"
+        android:elevation="@dimen/bottom_navigation_icon"
+        app:backgroundTint="#F0F7DF11"
         app:icon="@drawable/ic_add_button"
-        app:rippleColor="#60B027" />
+        app:iconPadding="10dp"
+        app:iconSize="@dimen/vector_height"
+        app:iconTint="#020101"
+        app:rippleColor="#69F506"
+        app:strokeColor="#F70E0D0D"
+        app:strokeWidth="@dimen/bottom_navigation_icon" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

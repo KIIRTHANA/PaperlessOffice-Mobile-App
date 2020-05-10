@@ -14,9 +14,12 @@
         android:roundIcon="@mipmap/ic_app_icon"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".views.dashboard.UploadFiles"
-        android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true"/>
+        <activity
+            android:name=".views.dashboard.UploadFiles"
+            android:label="Upload Document"
+            android:theme="@style/AppTheme"
+            android:usesCleartextTraffic="true"
+            android:parentActivityName=".views.Dashboard"/>
 
         <activity
             android:name=".views.Dashboard"

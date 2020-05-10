@@ -101,7 +101,6 @@
         android:orientation="vertical">
 
         <Button
-            style="@style/NewButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="14dp"
@@ -109,7 +108,6 @@
             android:layout_marginTop="20dp"
             android:padding="12dp"
             android:textSize="14sp"
-            android:background="@color/purples"
             android:text="SELECT DOCUMENT TO UPLOAD" />
     </LinearLayout>
 

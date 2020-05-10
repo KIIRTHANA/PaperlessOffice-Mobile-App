@@ -32,7 +32,6 @@
         app:iconTint="#020101"
         app:rippleColor="#69F506"
         app:strokeColor="#F70E0D0D"
-        app:strokeWidth="@dimen/bottom_navigation_icon"
-        android:onClick="openUploadActivity"/>
+        app:strokeWidth="@dimen/bottom_navigation_icon"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

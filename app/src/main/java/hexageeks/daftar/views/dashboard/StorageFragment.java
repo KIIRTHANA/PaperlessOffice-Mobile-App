@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.Nullable;
@@ -25,7 +24,7 @@ import hexageeks.daftar.viewmodels.StorageAdapter;
 public class StorageFragment extends Fragment {
     private Snackbar snackbar;
     private RecyclerView storageRecyclerView;
-    public ExtendedFloatingActionButton extendedFloatingActionButton;
+    private ExtendedFloatingActionButton extendedFloatingActionButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,7 +39,7 @@ public class StorageFragment extends Fragment {
         storageRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
 
         // Upload file - FAB
-        extendedFloatingActionButton = (ExtendedFloatingActionButton)this.getView().findViewById(R.id.fab_upload);
+        extendedFloatingActionButton = view.findViewById(R.id.fab_upload);
         extendedFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,7 +72,6 @@ public class StorageFragment extends Fragment {
     public void openUploadActivity(){
         Intent myIntent = new Intent(StorageFragment.this.getActivity(), UploadFiles.class);
         startActivity(myIntent);
-
     }
 
 

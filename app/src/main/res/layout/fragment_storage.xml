@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FBFCFD"
+    android:background="#CACACA"
     android:orientation="vertical"
     android:padding="8dp">
 
@@ -25,7 +25,7 @@
         android:width="@dimen/bottom_navigation_text_size_active"
         android:background="#00EBE7E7"
         android:elevation="@dimen/bottom_navigation_icon"
-        app:backgroundTint="#F0F7DF11"
+        app:backgroundTint="#A612E6"
         app:icon="@drawable/ic_add_button"
         app:iconPadding="10dp"
         app:iconSize="@dimen/vector_height"

@@ -17,14 +17,15 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="File Name"
-            android:padding="16dp"
-            android:textStyle="bold"
-            android:textSize="14sp"
             android:layout_weight="0.7"
-            android:textColor="@color/colorPrimary"></TextView>
+            android:padding="16dp"
+            android:text="File Name"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            android:textStyle="bold"></TextView>
 
         <EditText
+            android:id="@+id/upload_doc_name"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.25"></EditText>
@@ -48,6 +49,7 @@
             android:textColor="@color/colorPrimary"></TextView>
 
         <EditText
+            android:id="@+id/upload_doc_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -73,25 +75,28 @@
             android:textColor="@color/colorPrimary"></TextView>
 
         <RadioGroup
+            android:id="@+id/upload_doc_radio_group"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:padding="12dp"
+            android:layout_weight="0.4"
             android:orientation="horizontal"
-            android:layout_weight="0.4">
+            android:padding="12dp">
 
             <RadioButton
+                android:id="@+id/upload_doc_radio_public"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:checked="false"
-                android:text="Public"
-                android:paddingRight="16dp" />
+                android:paddingRight="16dp"
+                android:text="Public" />
 
             <RadioButton
+                android:id="@+id/upload_doc_radio_private"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:checked="false"
-                android:text="Private"
-                android:paddingRight="16dp" />
+                android:paddingRight="16dp"
+                android:text="Private" />
         </RadioGroup>
     </LinearLayout>
 
@@ -101,14 +106,15 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/upload_doc_file"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"
             android:layout_marginTop="20dp"
             android:padding="12dp"
-            android:textSize="14sp"
-            android:text="SELECT DOCUMENT TO UPLOAD" />
+            android:text="SELECT DOCUMENT TO UPLOAD"
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -118,27 +124,28 @@
         android:weightSum="2">
 
         <ImageView
+            android:id="@+id/upload_doc_preview"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:src="@drawable/ic_doc_preview"
-            android:layout_weight="1.4"
-            android:layout_marginTop="14dp"
+            android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"
-            android:layout_marginLeft="14dp" />
+            android:layout_marginTop="14dp"
+            android:layout_weight="1.4"
+            android:src="@drawable/ic_doc_preview" />
 
         <TextView
+            android:id="@+id/upload_doc_submit"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="20dp"
-            android:textSize="14sp"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:text="SUBMIT &amp; UPLOAD"
             android:layout_weight="0.4"
-            android:clickable="false"
             android:background="@drawable/rounded_edges"
+            android:clickable="false"
+            android:gravity="center"
+            android:text="SUBMIT &amp; UPLOAD"
+            android:textColor="@color/white"
 
-            />
+            android:textSize="14sp" />
 
 
     </LinearLayout>

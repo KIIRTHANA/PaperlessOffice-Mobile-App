@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -18,6 +19,7 @@ public class UploadFiles extends AppCompatActivity {
     private RadioButton publicRadioButton;
     private RadioButton privateRadioButton;
     private Button selectFileButton;
+    private ImageView previewFile;
     private Button submitButton;
 
     @Override
@@ -28,5 +30,15 @@ public class UploadFiles extends AppCompatActivity {
         // Form Fields
         nameField = findViewById(R.id.upload_doc_name);
         descField = findViewById(R.id.upload_doc_desc);
+        visibilityRadioGroup = findViewById(R.id.upload_doc_radio_group);
+        publicRadioButton = findViewById(R.id.upload_doc_radio_public);
+        privateRadioButton = findViewById(R.id.upload_doc_radio_private);
+        selectFileButton = findViewById(R.id.upload_doc_file);
+        previewFile = findViewById(R.id.upload_doc_preview);
+        submitButton = findViewById(R.id.upload_doc_submit_btn);
+
+        //TODO: Select document to Upload
+
+
     }
 }

@@ -133,18 +133,16 @@
             android:layout_weight="1.4"
             android:src="@drawable/ic_doc_preview" />
 
-        <TextView
-            android:id="@+id/upload_doc_submit"
+        <Button
+            android:id="@+id/upload_doc_submit_btn"
+            style="@style/CustomUploadButton"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="20dp"
             android:layout_weight="0.4"
-            android:background="@drawable/rounded_edges"
-            android:clickable="false"
             android:gravity="center"
             android:text="SUBMIT &amp; UPLOAD"
             android:textColor="@color/white"
-
             android:textSize="14sp" />
 
 

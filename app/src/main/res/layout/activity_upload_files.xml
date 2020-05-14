@@ -126,19 +126,16 @@
             android:layout_marginRight="14dp"
             android:layout_marginLeft="14dp" />
 
-        <TextView
+        <Button
+            style="@style/CustomUploadButton"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="20dp"
-            android:textSize="14sp"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:text="SUBMIT &amp; UPLOAD"
             android:layout_weight="0.4"
-            android:clickable="false"
-            android:background="@drawable/rounded_edges"
-
-            />
+            android:gravity="center"
+            android:text="SUBMIT &amp; UPLOAD"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
 
 
     </LinearLayout>

@@ -57,7 +57,7 @@ public class SplashScreen extends AppCompatActivity {
                         startActivity(dashboardIntent);
                         finish();
 
-                        Log.v(TAG, "Login Successful: ");
+                        Log.v(TAG, "Login Successful: " + User.instance.toString());
                     } catch (JSONException e) {
                         e.printStackTrace();
 

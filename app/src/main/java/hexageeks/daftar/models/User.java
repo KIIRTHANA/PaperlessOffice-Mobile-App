@@ -24,8 +24,11 @@ public class User {
     }
 
     public static User setInstance(String id, String fName, String lName, String dob, String role, String token) {
-        instance = new User(id, fName,lName, dob, role, token);
-        return instance;
+        return instance = new User(id, fName,lName, dob, role, token);
+    }
+
+    public static User clearInstance() {
+        return instance = null;
     }
 
     @Override

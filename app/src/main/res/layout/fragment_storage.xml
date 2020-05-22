@@ -30,8 +30,6 @@
         app:iconPadding="10dp"
         app:iconSize="@dimen/vector_height"
         app:iconTint="#020101"
-        app:rippleColor="#69F506"
-        app:strokeColor="#F70E0D0D"
-        app:strokeWidth="@dimen/bottom_navigation_icon"/>
+        app:rippleColor="#69F506"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

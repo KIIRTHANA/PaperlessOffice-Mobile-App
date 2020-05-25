@@ -81,6 +81,29 @@ public class StorageUtils {
         p.load(imgUrl).error(R.drawable.file_404).into(imageView);
     }
 
+    public static void loadImageFromUri(Context context, ImageView imageView, Uri uri) {
+
+        OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(new Interceptor() {
+                    @Override
+                    public Response intercept(Chain chain) throws IOException {
+                        String token = User.getInstance().token;
+                        String authString = "Bearer "+token;
+                        Request newRequest = chain.request().newBuilder()
+                                .addHeader("Authorization", authString)
+                                .build();
+                        return chain.proceed(newRequest);
+                    }
+                })
+                .build();
+
+        Picasso p = new Picasso.Builder(context)
+                .downloader(new OkHttp3Downloader(client))
+                .build();
+
+        p.load(uri).error(R.drawable.file_404).into(imageView);
+    }
+
     public static void downloadFileFromUrl(Context context, StorageItem item) {
 
         ActivityCompat.requestPermissions((Activity) context,

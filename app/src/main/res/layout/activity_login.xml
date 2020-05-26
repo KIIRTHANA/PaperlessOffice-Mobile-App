@@ -9,6 +9,7 @@
     android:focusableInTouchMode="true">
 
 
+
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -103,19 +104,6 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_20" />
 
-
-                <Button
-                    android:id="@+id/register"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_right_16"
-                    android:layout_marginTop="@dimen/margin_top_8"
-                    android:layout_marginRight="@dimen/margin_right_16"
-                    android:layout_marginBottom="@dimen/margin_top_8"
-                    android:background="@drawable/sec_btn"
-                    android:text="REGISTER"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_20" />
 
                 <ProgressBar
                     android:id="@+id/login_loding"

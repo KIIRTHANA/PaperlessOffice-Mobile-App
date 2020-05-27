@@ -21,7 +21,7 @@
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_upload"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom|end"
@@ -34,8 +34,7 @@
         app:iconPadding="10dp"
         app:iconSize="@dimen/vector_height"
         app:iconTint="#020101"
-        app:rippleColor="#69F506"
-        app:strokeWidth="4dp" />
+        app:rippleColor="#69F506" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

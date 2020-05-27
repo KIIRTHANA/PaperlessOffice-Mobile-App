@@ -2,20 +2,18 @@ package hexageeks.daftar.views.dashboard;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import hexageeks.daftar.R;
 import hexageeks.daftar.backend.DataProvider;
 import hexageeks.daftar.models.StorageItem;
@@ -50,28 +48,20 @@ public class StorageFragment extends Fragment {
             }
         });
 
-        // SwipetoRefresh
+        // Swipe to Refresh
         swipeContainer = view.findViewById(R.id.swipeContainer);
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-
                 loadDataToRecyclerView();
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        swipeContainer.setRefreshing(false);
-                    }
-                }, 3000);
             }
         });
-        //Refreshing colors
+
+        // Refreshing colors
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_purple,
                 android.R.color.holo_red_dark,
-                android.R.color.holo_orange_dark,
-                android.R.color.holo_green_light);
-
+                android.R.color.holo_red_light);
 
         loadDataToRecyclerView();
 
@@ -80,17 +70,25 @@ public class StorageFragment extends Fragment {
 
     void loadDataToRecyclerView() {
         // Data gets loaded
+        // This is a sync call
         DataProvider.getInstance().getStorageData(getActivity(), new DataProvider.OnResponse<StorageItem[]>() {
                     @Override
                     public void execute(StorageItem[] data) {
+                        // This code executes when data is loaded from network
+                        // Load data to recycler view
                         RecyclerView.Adapter storageAdapter = new StorageAdapter(data);
                         storageRecyclerView.setAdapter(storageAdapter);
 
+                        // Task finished
+                        // Dismiss Snackbar
                         if (snackbar.isShown())
                             snackbar.dismiss();
+
+                        // Dismiss SwipeContainer
+                        if (swipeContainer.isRefreshing())
+                            swipeContainer.setRefreshing(false);
                     }
                 }
-
         );
     }
 

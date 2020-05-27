@@ -69,7 +69,9 @@ public class StorageFragment extends Fragment {
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_purple,
                 android.R.color.holo_red_dark,
-                android.R.color.holo_red_light);
+                android.R.color.holo_orange_dark,
+                android.R.color.holo_green_light);
+
 
         loadDataToRecyclerView();
 

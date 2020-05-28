@@ -4,8 +4,13 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
+import android.provider.OpenableColumns;
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -13,10 +18,14 @@ import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestHandler;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import hexageeks.daftar.R;
 import hexageeks.daftar.models.StorageItem;
 import hexageeks.daftar.models.User;
@@ -132,5 +141,23 @@ public class StorageUtils {
 
         DownloadManager downloadManager= (DownloadManager) context.getSystemService(DOWNLOAD_SERVICE);
         downloadManager.enqueue(request);
+    }
+
+    public static byte[] InputStreamToBytes(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
+        int bufferSize = 1024;
+        byte[] buffer = new byte[bufferSize];
+
+        int len = 0;
+        while ((len = inputStream.read(buffer)) != -1) {
+            byteBuffer.write(buffer, 0, len);
+        }
+        return byteBuffer.toByteArray();
+    }
+
+    public static String getNameFromURI(Uri uri, Context context) {
+        Cursor c = context.getContentResolver().query(uri, null, null, null, null);
+        c.moveToFirst();
+        return c.getString(c.getColumnIndex(OpenableColumns.DISPLAY_NAME));
     }
 }

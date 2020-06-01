@@ -15,13 +15,6 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".views.dashboard.UploadFiles"
-            android:label="Upload Document"
-            android:theme="@style/AppTheme"
-            android:usesCleartextTraffic="true"
-            android:parentActivityName=".views.Dashboard"/>
-
-        <activity
             android:name=".views.Dashboard"
             android:label="@string/title_activity_dashboard"
             android:theme="@style/AppTheme.NoActionBar" />

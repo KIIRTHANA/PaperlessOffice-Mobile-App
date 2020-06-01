@@ -15,13 +15,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-<<<<<<< HEAD
-=======
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
->>>>>>> 0860b413247824880da8b9956758a1850abea65c
 
 import hexageeks.daftar.R;
 import hexageeks.daftar.backend.DataProvider;
@@ -71,16 +68,13 @@ public abstract class UploadFiles extends AppCompatActivity {
             }
         });
 
-<<<<<<< HEAD
-
-=======
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onSubmit();
             }
         });
->>>>>>> 0860b413247824880da8b9956758a1850abea65c
+
     }
 
     private void showFileChooser() {
@@ -130,10 +124,7 @@ public abstract class UploadFiles extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-<<<<<<< HEAD
 
-
-=======
     private void onSubmit() {
 
         if (!validateInput())
@@ -171,5 +162,5 @@ public abstract class UploadFiles extends AppCompatActivity {
         // TODO
         return true;
     }
->>>>>>> 0860b413247824880da8b9956758a1850abea65c
+
 }

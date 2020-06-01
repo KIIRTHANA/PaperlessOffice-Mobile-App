@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="12dp"
-            android:hint="Enter a description for your file"
+            android:hint="Enter a description for document"
             android:inputType="textMultiLine"></EditText>
     </LinearLayout>
 

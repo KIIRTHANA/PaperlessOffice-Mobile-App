@@ -159,8 +159,31 @@ public class UploadFiles extends AppCompatActivity {
     }
 
     private boolean validateInput() {
-        // TODO
-        return true;
+        boolean isValid = true;
+
+        if (nameField.getText().toString().isEmpty()) {
+            nameField.setError("File Name is Mandatory");
+            isValid = false;
+        }
+        else{
+        nameField.setError(null);}
+
+        if (descField.getText().toString().isEmpty()) {
+            descField.setError("Enter Description");
+            isValid = false;
+        }
+        else{
+            descField.setError(null);
+        }
+
+        int isSelected = visibilityRadioGroup.getCheckedRadioButtonId();
+        if(isSelected==-1){
+            Toast.makeText(UploadFiles.this,"You have not selected any File Visibilty",Toast.LENGTH_LONG).show();
+            isValid=false;
+        }
+
+
+        return isValid;
     }
 
 }

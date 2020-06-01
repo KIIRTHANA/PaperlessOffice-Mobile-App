@@ -24,7 +24,7 @@ import hexageeks.daftar.R;
 import hexageeks.daftar.backend.DataProvider;
 import hexageeks.daftar.utils.StorageUtils;
 
-public abstract class UploadFiles extends AppCompatActivity {
+public class UploadFiles extends AppCompatActivity {
 
     private static final String TAG = "DAFTAR: UploadFiles: ";
 

@@ -31,7 +31,9 @@
             android:name=".views.LoginScreen"
             android:theme="@style/NoActionBarTheme" />
         <activity android:name=".views.dashboard.UploadFiles"
-            android:theme="@style/NoActionBarTheme"/>
+            android:label="Upload Documents"
+            android:parentActivityName=".views.Dashboard"/>
+
     </application>
 
 </manifest>

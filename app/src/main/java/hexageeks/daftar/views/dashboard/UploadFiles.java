@@ -15,8 +15,16 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+<<<<<<< HEAD
+=======
+import com.google.android.material.snackbar.Snackbar;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+>>>>>>> 0860b413247824880da8b9956758a1850abea65c
 
 import hexageeks.daftar.R;
+import hexageeks.daftar.backend.DataProvider;
 import hexageeks.daftar.utils.StorageUtils;
 
 public abstract class UploadFiles extends AppCompatActivity {
@@ -33,6 +41,10 @@ public abstract class UploadFiles extends AppCompatActivity {
     private Button selectFileButton;
     private ImageView previewFile;
     private Button submitButton;
+    private Snackbar snackbar;
+
+    private String mimeType = null;
+    private Uri fileUri = null;
 
 
     @Override
@@ -49,6 +61,8 @@ public abstract class UploadFiles extends AppCompatActivity {
         selectFileButton = findViewById(R.id.upload_doc_file);
         previewFile = findViewById(R.id.upload_doc_preview);
         submitButton = findViewById(R.id.upload_doc_submit_btn);
+        snackbar = Snackbar.make(findViewById(android.R.id.content),
+                "Uploading Your Document, Please wait...", Snackbar.LENGTH_INDEFINITE);
 
         selectFileButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +71,16 @@ public abstract class UploadFiles extends AppCompatActivity {
             }
         });
 
+<<<<<<< HEAD
 
+=======
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSubmit();
+            }
+        });
+>>>>>>> 0860b413247824880da8b9956758a1850abea65c
     }
 
     private void showFileChooser() {
@@ -98,12 +121,55 @@ public abstract class UploadFiles extends AppCompatActivity {
                             previewFile.setImageResource(R.drawable.pdf_file);
                             break;
                     }
+
+                    fileUri = uri;
+                    this.mimeType = mimeType;
                 }
                 break;
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+<<<<<<< HEAD
 
 
+=======
+    private void onSubmit() {
+
+        if (!validateInput())
+            return;
+
+        // Submit
+        snackbar.setAction("Uploading Your Document, Please wait...", null).show();
+        String visibility = null;
+
+        switch (visibilityRadioGroup.getCheckedRadioButtonId()) {
+            case R.id.upload_doc_radio_public: visibility = "public"; break;
+            case R.id.upload_doc_radio_private: visibility = "private"; break;
+        }
+
+        InputStream inputStream = null;
+        try {
+            inputStream = getContentResolver().openInputStream(fileUri);
+        } catch (FileNotFoundException e) {
+            Log.e(TAG, "Error Getting Input Stream from Uri");
+            return;
+        }
+
+        DataProvider.getInstance().addDocument(this, nameField.getText().toString(),
+                descField.getText().toString(), visibility, inputStream, mimeType, fileUri,
+                new DataProvider.OnFinished() {
+                    @Override
+                    public void execute() {
+                        //Loading Over
+                        snackbar.dismiss();
+                    }
+                });
+    }
+
+    private boolean validateInput() {
+        // TODO
+        return true;
+    }
+>>>>>>> 0860b413247824880da8b9956758a1850abea65c
 }

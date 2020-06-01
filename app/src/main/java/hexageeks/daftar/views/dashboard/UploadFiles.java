@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,10 +15,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+
 import hexageeks.daftar.R;
 import hexageeks.daftar.utils.StorageUtils;
 
-public class UploadFiles extends AppCompatActivity {
+public abstract class UploadFiles extends AppCompatActivity {
 
     private static final String TAG = "DAFTAR: UploadFiles: ";
 
@@ -31,6 +33,7 @@ public class UploadFiles extends AppCompatActivity {
     private Button selectFileButton;
     private ImageView previewFile;
     private Button submitButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +57,7 @@ public class UploadFiles extends AppCompatActivity {
             }
         });
 
-        // TODO: Implement Document Upload Process
+
     }
 
     private void showFileChooser() {
@@ -100,4 +103,7 @@ public class UploadFiles extends AppCompatActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+
+
 }

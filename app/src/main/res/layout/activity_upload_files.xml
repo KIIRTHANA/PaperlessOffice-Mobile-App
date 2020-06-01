@@ -27,6 +27,7 @@
         <EditText
             android:id="@+id/upload_doc_name"
             android:layout_width="0dp"
+            android:hint="Enter file name"
             android:layout_height="match_parent"
             android:layout_weight="1.25"></EditText>
     </LinearLayout>
@@ -54,6 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="12dp"
+            android:hint="Enter a description for your file"
             android:inputType="textMultiLine"></EditText>
     </LinearLayout>
 

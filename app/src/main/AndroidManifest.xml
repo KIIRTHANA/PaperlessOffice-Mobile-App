@@ -30,6 +30,8 @@
         <activity
             android:name=".views.LoginScreen"
             android:theme="@style/NoActionBarTheme" />
+        <activity android:name=".views.dashboard.UploadFiles"
+            android:theme="@style/NoActionBarTheme"/>
     </application>
 
 </manifest>

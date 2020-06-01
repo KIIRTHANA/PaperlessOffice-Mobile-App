@@ -178,7 +178,7 @@ public class UploadFiles extends AppCompatActivity {
 
         int isSelected = visibilityRadioGroup.getCheckedRadioButtonId();
         if(isSelected==-1){
-            Toast.makeText(UploadFiles.this,"You have not selected any File Visibilty",Toast.LENGTH_LONG).show();
+            Toast.makeText(UploadFiles.this,"You have not selected any File Visibilty Option",Toast.LENGTH_LONG).show();
             isValid=false;
         }
 

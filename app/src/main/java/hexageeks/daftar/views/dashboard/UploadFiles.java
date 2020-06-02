@@ -182,6 +182,10 @@ public class UploadFiles extends AppCompatActivity {
             isValid=false;
         }
 
+        if (fileUri == null || mimeType == null) {
+            Toast.makeText(this, "Please select any file to upload.", Toast.LENGTH_LONG).show();
+            return false;
+        }
 
         return isValid;
     }

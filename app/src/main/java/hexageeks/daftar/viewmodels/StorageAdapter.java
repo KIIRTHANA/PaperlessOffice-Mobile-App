@@ -50,12 +50,7 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHold
         holder.fileName.setText(storageItem.getFileName());
         holder.desc.setText(storageItem.getFileDescription());
 
-        holder.viewBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO: View Screen
-            }
-        });
+
 
         holder.downloadBtn.setOnClickListener(new View.OnClickListener() {
 
@@ -76,7 +71,6 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHold
         public ImageView previewImg;
         public TextView fileName;
         public TextView desc;
-        public MaterialButton viewBtn;
         public MaterialButton downloadBtn;
 
 
@@ -85,7 +79,6 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHold
             this.previewImg =  itemView.findViewById(R.id.storage_item_img);
             this.fileName = itemView.findViewById(R.id.storage_item_title);
             this.desc = itemView.findViewById(R.id.storage_item_description);
-            this.viewBtn = itemView.findViewById(R.id.storage_item_view_btn);
             this.downloadBtn = itemView.findViewById(R.id.storage_view_download_btn);
         }
     }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card"
     android:layout_width="wrap_content"
@@ -7,7 +8,8 @@
     android:layout_margin="8dp"
     app:cardBackgroundColor="#F5F8F5"
     app:cardElevation="4dp"
-    >
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground">
 
 
     <LinearLayout
@@ -59,19 +61,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="4">
+            android:weightSum="3">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/storage_item_view_btn"
-                style="?attr/borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:padding="12dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:iconGravity="textStart"
-                app:icon="@drawable/ic_view_icon"
-
-                />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/storage_view_download_btn"

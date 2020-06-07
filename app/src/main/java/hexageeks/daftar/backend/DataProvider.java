@@ -24,6 +24,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import hexageeks.daftar.models.Application;
 import hexageeks.daftar.models.StorageItem;
 import hexageeks.daftar.models.User;
 import hexageeks.daftar.utils.StorageUtils;
@@ -168,6 +169,62 @@ public class DataProvider {
         };
 
         ServerRequestQueue.getInstance(context).getRequestQueue().add(multipartRequest);
+    }
+
+    public void getApplcationsData(Context context, final DataProvider.OnResponse r) {
+        RequestQueue queue = ServerRequestQueue.getInstance(context).getRequestQueue();
+
+        JsonArrayRequest loginRequest = new JsonArrayRequest(Request.Method.GET, host + "/applications", null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    Application[] data = new Application[response.length()];
+
+                    for (int i = 0; i < response.length(); i++) {
+                        JSONObject obj = response.getJSONObject(i);
+
+                        String timestamp = obj.getJSONObject("timestamp").getString("$date");
+                        Date d = new Date(Long.parseLong(timestamp));
+
+                        data[i] = new Application(obj.getJSONObject("_id").getString("$oid"),
+                                obj.getString("name"), obj.getString("description"),
+                                obj.getString("message"), obj.getString("templateId"),
+                                obj.getString("creatorId"), obj.getString("creatorName"),
+                                obj.getString("workflowId"), obj.getString("assignedId"),
+                                obj.getString("formId"), obj.getInt("status"),
+                                obj.getInt("stage"), obj.getInt("stages"),
+                                d);
+                    }
+
+                    Log.v(TAG, "Application Data Retrieved ");
+
+                    r.execute(data);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Failed: " + error
+                        + "\nStatus Code " + error.networkResponse.statusCode
+                        + "\nCause " + error.getCause()
+                        + "\nnetworkResponse " + error.networkResponse.data.toString()
+                        + "\nmessage" + error.getMessage());
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                // Basic Authentication
+                //String auth = "Basic " + Base64.encodeToString(CONSUMER_KEY_AND_SECRET.getBytes(), Base64.NO_WRAP);
+
+                headers.put("Authorization", "Bearer " + User.instance.token);
+                return headers;
+            }
+        };
+
+        queue.add(loginRequest);
     }
 
     public interface OnResponse<G> {

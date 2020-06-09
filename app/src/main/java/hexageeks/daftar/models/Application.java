@@ -13,6 +13,7 @@ public class Application {
     private final String creatorName;
     private final String workflowId;
     private final String assignedId;
+    private final String assignedName;
     private final String formId;
     private final int status;
     private final int stage;
@@ -21,7 +22,7 @@ public class Application {
 
     public Application (String id, String name, String description, String message,
                         String templateId, String creatorId, String creatorName, String workflowId,
-                        String assignedId, String formId, int status, int stage, int stages,
+                        String assignedId, String assignedName, String formId, int status, int stage, int stages,
                         Date timestamp) {
 
         this.id = id;
@@ -33,6 +34,7 @@ public class Application {
         this.creatorName = creatorName;
         this.workflowId = workflowId;
         this.assignedId = assignedId;
+        this.assignedName = assignedName;
         this.formId = formId;
         this.status = status;
         this.stage = stage;
@@ -51,6 +53,8 @@ public class Application {
     public String getFormId() { return formId; }
 
     public String getAssignedId() { return assignedId; }
+
+    public String getAssignedName() { return assignedName; }
 
     public String getWorkflowId() { return workflowId; }
 

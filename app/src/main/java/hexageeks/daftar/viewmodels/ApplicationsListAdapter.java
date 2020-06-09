@@ -1,5 +1,6 @@
 package hexageeks.daftar.viewmodels;
 
+import android.content.res.ColorStateList;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,8 +48,15 @@ public class ApplicationsListAdapter extends RecyclerView.Adapter<ApplicationsLi
         holder.timestamp.setText(new SimpleDateFormat("MM/dd/yyyy hh:mm a").format(application.getTimestamp()));
 
         if (application.getCreatorId().equals(User.getInstance().id)) {
+            // Creator
+
+            holder.additionalText.setText("Waiting for " + application.getAssignedName());
             holder.openBtn.setText("View");
         } else {
+            // Authority
+
+            holder.stageProgress.setProgressTintList(holder.itemView.getResources().getColorStateList(R.color.colorPrimary));
+            holder.additionalText.setText("Created by " + application.getCreatorName());
             holder.openBtn.setText("Sign");
         }
 
@@ -73,6 +81,7 @@ public class ApplicationsListAdapter extends RecyclerView.Adapter<ApplicationsLi
         public TextView timestamp;
         public ProgressBar stageProgress;
         public Button openBtn;
+        public TextView additionalText;
 
 
         public ViewHolder(View itemView) {
@@ -83,6 +92,7 @@ public class ApplicationsListAdapter extends RecyclerView.Adapter<ApplicationsLi
             this.timestamp = itemView.findViewById(R.id.application_item_timestamp);
             this.stageProgress = itemView.findViewById(R.id.application_item_stage);
             this.openBtn = itemView.findViewById(R.id.application_item_btn);
+            this.additionalText = itemView.findViewById(R.id.application_item_additional);
         }
     }
 }

@@ -191,6 +191,7 @@ public class DataProvider {
                                 obj.getString("message"), obj.getString("templateId"),
                                 obj.getString("creatorId"), obj.getString("creatorName"),
                                 obj.getString("workflowId"), obj.getString("assignedId"),
+                                obj.getString("assignedName"),
                                 obj.getString("formId"), obj.getInt("status"),
                                 obj.getInt("stage"), obj.getInt("stages"),
                                 d);

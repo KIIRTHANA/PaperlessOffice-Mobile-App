@@ -9,6 +9,7 @@
     app:cardBackgroundColor="#F5F8F5"
     app:cardElevation="4dp"
     android:clickable="true"
+    android:onClick="OpenDetails"
     android:foreground="?android:attr/selectableItemBackground">
 
 

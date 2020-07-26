@@ -80,7 +80,7 @@ public class StorageFragment extends Fragment {
                     public void execute(StorageItem[] data) {
                         // This code executes when data is loaded from network
                         // Load data to recycler view
-                        RecyclerView.Adapter storageAdapter = new StorageAdapter(data);
+                        RecyclerView.Adapter storageAdapter = new StorageAdapter(getActivity(), data);
                         storageRecyclerView.setAdapter(storageAdapter);
 
                         // Task finished

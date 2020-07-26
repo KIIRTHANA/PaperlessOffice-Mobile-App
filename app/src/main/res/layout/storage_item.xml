@@ -2,14 +2,13 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card"
+    android:id="@+id/storage_item_card"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardBackgroundColor="#F5F8F5"
     app:cardElevation="4dp"
     android:clickable="true"
-    android:onClick="OpenDetails"
     android:foreground="?android:attr/selectableItemBackground">
 
 

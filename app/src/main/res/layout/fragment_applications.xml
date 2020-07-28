@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
-        app:backgroundTint="#7CB342"
+        app:backgroundTint="#9BE44D"
         app:srcCompat="@drawable/ic_note_add_black_24dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

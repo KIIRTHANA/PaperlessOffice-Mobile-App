@@ -6,6 +6,7 @@
     <string name="submitted_to">TextView</string>
     <string name="view">View</string>
     <string name="search_menu">search menu</string>
+    <string name="application_name_view">Application Name</string>
 
 
 </resources>

@@ -157,7 +157,7 @@ public class UploadFiles extends AppCompatActivity {
                     }
                 });
     }
-
+//Validations
     private boolean validateInput() {
         boolean isValid = true;
 

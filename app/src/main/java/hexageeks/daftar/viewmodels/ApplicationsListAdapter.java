@@ -1,5 +1,7 @@
 package hexageeks.daftar.viewmodels;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import hexageeks.daftar.R;
 import hexageeks.daftar.models.Application;
 import hexageeks.daftar.models.User;
+import hexageeks.daftar.views.dashboard.ApplicationsFragment;
+import hexageeks.daftar.views.dashboard.DocDetails;
+import hexageeks.daftar.views.dashboard.StorageFragment;
+import hexageeks.daftar.views.dashboard.ViewApplication;
 
 import static hexageeks.daftar.utils.StorageUtils.downloadFileFromUrl;
 
@@ -63,9 +69,14 @@ public class ApplicationsListAdapter extends RecyclerView.Adapter<ApplicationsLi
         holder.openBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO
+                Intent intent = new Intent(ViewApplication.class);
+                startActivity(intent);
+
+
             }
         });
+
+
     }
 
 

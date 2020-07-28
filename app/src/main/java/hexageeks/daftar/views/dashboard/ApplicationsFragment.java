@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -22,6 +23,7 @@ public class ApplicationsFragment extends Fragment {
     private Snackbar snackbar;
     private RecyclerView applicationsView;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -29,7 +31,6 @@ public class ApplicationsFragment extends Fragment {
 
         snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), "Loading ... Please wait...", Snackbar.LENGTH_INDEFINITE);
         snackbar.setAction("Loading...", null).show();
-
         applicationsView = view.findViewById(R.id.applicationsView);
 
         applicationsView.setHasFixedSize(true);
@@ -52,4 +53,5 @@ public class ApplicationsFragment extends Fragment {
             }
         });
     }
+
 }

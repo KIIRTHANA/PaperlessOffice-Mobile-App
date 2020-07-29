@@ -63,7 +63,7 @@
                     android:drawablePadding="@dimen/padding_16"
                     android:hint="User Name"
                     android:inputType="text"
-                    android:maxLength="30"
+                    android:maxLength="50"
                     android:maxLines="1"
                     android:padding="@dimen/padding_16"
                     android:textColor="@color/colorPrimaryDark"

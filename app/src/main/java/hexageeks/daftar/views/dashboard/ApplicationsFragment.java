@@ -1,11 +1,13 @@
 package hexageeks.daftar.views.dashboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -22,6 +24,7 @@ public class ApplicationsFragment extends Fragment {
 
     private Snackbar snackbar;
     private RecyclerView applicationsView;
+    private FloatingActionButton floatingActionButton;
 
 
     @Override
@@ -36,6 +39,15 @@ public class ApplicationsFragment extends Fragment {
         applicationsView.setHasFixedSize(true);
         applicationsView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        // Apply for new application - Fab
+        floatingActionButton = view.findViewById(R.id.floating_action_button);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openUploadActivity();
+
+            }
+        });
         loadApplicationsData();
 
         return view;
@@ -52,6 +64,11 @@ public class ApplicationsFragment extends Fragment {
                     snackbar.dismiss();
             }
         });
+    }
+
+    public void openUploadActivity() {
+        Intent myIntent = new Intent(ApplicationsFragment.this.getActivity(), CreateApplication.class);
+        startActivity(myIntent);
     }
 
 }

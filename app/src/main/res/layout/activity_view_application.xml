@@ -79,6 +79,7 @@
             android:gravity="center"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/authorityList"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_weight="2.5">

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+    android:id="@+id/authorityItem"
     android:clickable="true"
     android:orientation="vertical"
     app:cardBackgroundColor="#E89CF5"

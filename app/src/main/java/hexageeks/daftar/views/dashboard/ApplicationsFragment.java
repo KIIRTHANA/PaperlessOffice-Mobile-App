@@ -45,7 +45,7 @@ public class ApplicationsFragment extends Fragment {
         DataProvider.getInstance().getApplcationsData(getActivity(), new DataProvider.OnResponse<Application[]>() {
             @Override
             public void execute(Application[] data) {
-                RecyclerView.Adapter applicationsListAdapter = new ApplicationsListAdapter(data);
+                RecyclerView.Adapter applicationsListAdapter = new ApplicationsListAdapter(data, ApplicationsFragment.this.getActivity());
                 applicationsView.setAdapter(applicationsListAdapter);
 
                 if (snackbar.isShown())

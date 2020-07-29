@@ -29,10 +29,11 @@ import static hexageeks.daftar.utils.StorageUtils.downloadFileFromUrl;
 
 public class ApplicationsListAdapter extends RecyclerView.Adapter<ApplicationsListAdapter.ViewHolder>{
     private Application[] data;
+    private Context context;
 
-
-    public ApplicationsListAdapter(Application[] data) {
+    public ApplicationsListAdapter(Application[] data, Context context) {
         this.data = data;
+        this.context =context;
     }
 
     @Override
@@ -69,10 +70,8 @@ public class ApplicationsListAdapter extends RecyclerView.Adapter<ApplicationsLi
         holder.openBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewApplication.class);
-                startActivity(intent);
-
-
+                Intent intent = new Intent(context, ViewApplication.class);
+                context.startActivity(intent);
             }
         });
 

@@ -9,6 +9,7 @@ public class User {
     public String token;
     public String selectedDoc;
     public String selectedApp;
+    public ApplicationTemplate selectedTemplate;
 
     public static User instance = null;
 
@@ -49,4 +50,10 @@ public class User {
     }
 
     public String getSelectedApp() { return selectedApp; }
+
+    public void setSelectedTemplate(ApplicationTemplate appTemp) {
+        selectedTemplate = appTemp;
+    }
+
+    public ApplicationTemplate getSelectedTemplate() { return selectedTemplate; }
 }

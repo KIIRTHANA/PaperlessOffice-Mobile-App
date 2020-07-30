@@ -8,6 +8,7 @@ public class User {
     public String role;
     public String token;
     public String selectedDoc;
+    public String selectedApp;
 
     public static User instance = null;
 
@@ -42,4 +43,10 @@ public class User {
     }
 
     public String getSelectedDoc() { return selectedDoc; }
+
+    public void setSelectedApp(String appId) {
+        selectedApp = appId;
+    }
+
+    public String getSelectedApp() { return selectedApp; }
 }

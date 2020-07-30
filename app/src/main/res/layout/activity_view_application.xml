@@ -4,97 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="30dp"
     android:orientation="vertical"
-    android:layout_margin="16dp"
     android:weightSum="3"
     tools:context=".views.dashboard.ViewApplication">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="91dp"
+        android:layout_height="wrap_content"
         android:layout_weight="0"
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/view_app_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
+            android:gravity="center_horizontal"
             android:text="@string/application_name_view"
+            android:textAlignment="center"
             android:textSize="22sp"
             android:textStyle="bold"></TextView>
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/view_app_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3">
+            android:layout_margin="2dp"
+            android:layout_weight="2"
+            android:gravity="center_horizontal"
+            android:text="Created by"></TextView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:layout_weight="2"
-                android:text="Created by"></TextView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:layout_weight="1"
-                android:text="Name"></TextView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:layout_weight="2"
-                android:text="Created on"></TextView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:layout_weight="1"
-                android:text="Date"></TextView>
-        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.2">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
             android:text="Workflow Process"
-            android:textStyle="bold"
             android:textSize="20sp"
-            android:gravity="center"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/authorityList"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_weight="2.5">
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:background="@drawable/curved_edge_bg">
+            android:textStyle="bold" />
 
-
-    </ListView>
     </LinearLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/workflowView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>

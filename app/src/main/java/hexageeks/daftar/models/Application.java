@@ -19,6 +19,7 @@ public class Application {
     private final int stage;
     private final int stages;
     private final Date timestamp;
+    private Workflow workflow;
 
     public Application (String id, String name, String description, String message,
                         String templateId, String creatorId, String creatorName, String workflowId,
@@ -71,4 +72,8 @@ public class Application {
     public String getCreatorId() { return creatorId; }
 
     public String getCreatorName() { return creatorName; }
+
+    public void setWorkflow(Workflow f) { workflow = f; }
+
+    public Workflow getWorkflow() { return workflow; }
 }

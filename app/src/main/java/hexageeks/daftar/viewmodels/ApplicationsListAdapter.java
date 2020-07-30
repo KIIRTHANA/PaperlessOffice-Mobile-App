@@ -71,6 +71,7 @@ public class ApplicationsListAdapter extends RecyclerView.Adapter<ApplicationsLi
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ViewApplication.class);
+                User.getInstance().setSelectedApp(application.getId());
                 context.startActivity(intent);
             }
         });

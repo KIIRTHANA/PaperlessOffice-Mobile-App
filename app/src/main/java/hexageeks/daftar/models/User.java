@@ -7,6 +7,7 @@ public class User {
     public String dob;
     public String role;
     public String token;
+    public String selectedDoc;
 
     public static User instance = null;
 
@@ -35,4 +36,10 @@ public class User {
     public String toString() {
         return String.format("User: [ %s, %s, %s, %s, %s]", id, fName, lName, dob, role);
     }
+
+    public void setSelectedDoc(String docId) {
+        selectedDoc = docId;
+    }
+
+    public String getSelectedDoc() { return selectedDoc; }
 }

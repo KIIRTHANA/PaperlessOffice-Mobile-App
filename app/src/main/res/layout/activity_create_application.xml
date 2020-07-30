@@ -20,73 +20,26 @@
     </LinearLayout>
 
     <RadioGroup
+        android:id="@+id/new_app_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <RadioButton
-        android:id="@+id/radioButton1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:button="@null"
-        android:drawableRight="?android:attr/listChoiceIndicatorSingle"
-        android:background="?android:selectableItemBackground"
-        android:layoutDirection="rtl"
-        android:layout_gravity="start"
-        android:textAlignment="textStart"
-        android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="10dp"
-        android:text="Leave Application Form"
-        android:textSize="14sp" />
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:button="@null"
-        android:drawableRight="?android:attr/listChoiceIndicatorSingle"
-        android:background="?android:selectableItemBackground"
-        android:layoutDirection="rtl"
-        android:layout_gravity="start"
-        android:textAlignment="textStart"
-        android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="10dp"
-        android:text="Hostel Application Form"
-        android:textSize="14sp" />
-    <RadioButton
-        android:id="@+id/radioButton3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:button="@null"
-        android:drawableRight="?android:attr/listChoiceIndicatorSingle"
-        android:background="?android:selectableItemBackground"
-        android:layoutDirection="rtl"
-        android:layout_gravity="start"
-        android:textAlignment="textStart"
-        android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="10dp"
-        android:text="Medical Leave Form"
-        android:textSize="14sp" />
-    <RadioButton
-        android:id="@+id/radioButton4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:button="@null"
-        android:drawableRight="?android:attr/listChoiceIndicatorSingle"
-        android:background="?android:selectableItemBackground"
-        android:layoutDirection="rtl"
-        android:layout_gravity="start"
-        android:textAlignment="textStart"
-        android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="10dp"
-        android:text="Co-curricular Leave Application"
-        android:textSize="14sp" />
+        <RadioButton
+            android:id="@+id/radio_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:background="?android:selectableItemBackground"
+            android:button="@null"
+            android:drawableRight="?android:attr/listChoiceIndicatorSingle"
+            android:layoutDirection="rtl"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:text="Leave Application Form"
+            android:textAlignment="textStart"
+            android:textSize="14sp" />
     </RadioGroup>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

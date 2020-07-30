@@ -14,6 +14,7 @@ import com.google.android.material.card.MaterialCardView;
 import androidx.recyclerview.widget.RecyclerView;
 import hexageeks.daftar.R;
 import hexageeks.daftar.models.StorageItem;
+import hexageeks.daftar.models.User;
 import hexageeks.daftar.utils.StorageUtils;
 import hexageeks.daftar.views.dashboard.DocDetails;
 import hexageeks.daftar.views.dashboard.StorageFragment;
@@ -61,7 +62,7 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHold
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(context, DocDetails.class);
-                myIntent.putExtra("id", storageItem.getId());
+                User.getInstance().setSelectedDoc(storageItem.getId());
                 context.startActivity(myIntent);
             }
         });

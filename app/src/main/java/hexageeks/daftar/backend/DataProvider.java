@@ -13,6 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -196,6 +197,54 @@ public class DataProvider {
                                 obj.getInt("stage"), obj.getInt("stages"),
                                 d);
                     }
+
+                    Log.v(TAG, "Application Data Retrieved ");
+
+                    r.execute(data);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Failed: " + error
+                        + "\nStatus Code " + error.networkResponse.statusCode
+                        + "\nCause " + error.getCause()
+                        + "\nnetworkResponse " + error.networkResponse.data.toString()
+                        + "\nmessage" + error.getMessage());
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                // Basic Authentication
+                //String auth = "Basic " + Base64.encodeToString(CONSUMER_KEY_AND_SECRET.getBytes(), Base64.NO_WRAP);
+
+                headers.put("Authorization", "Bearer " + User.instance.token);
+                return headers;
+            }
+        };
+
+        queue.add(loginRequest);
+    }
+
+    public void getDocumentData(Context context, String docId, final DataProvider.OnResponse r) {
+        RequestQueue queue = ServerRequestQueue.getInstance(context).getRequestQueue();
+
+        JsonObjectRequest loginRequest = new JsonObjectRequest(Request.Method.GET, host + "/storage/" + docId, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject obj) {
+                try {
+                    String timestamp = obj.getJSONObject("timestamp").getString("$date");
+                    Date d = new Date(Long.parseLong(timestamp));
+
+                    StorageItem data = new StorageItem(obj.getJSONObject("_id").getString("$oid"),
+                            obj.getString("fileExtension"),
+                            StorageUtils.parseFileType(obj.getString("fileExtension")), obj.getString("fileName"),
+                            obj.getString("fileDescription"),
+                            obj.getString("visibility"), obj.getString("creator"),
+                            d);
 
                     Log.v(TAG, "Application Data Retrieved ");
 

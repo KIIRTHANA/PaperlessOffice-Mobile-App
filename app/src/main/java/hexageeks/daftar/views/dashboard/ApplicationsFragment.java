@@ -5,16 +5,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import hexageeks.daftar.R;
 import hexageeks.daftar.backend.DataProvider;
 import hexageeks.daftar.models.Application;
@@ -25,6 +25,7 @@ public class ApplicationsFragment extends Fragment {
     private Snackbar snackbar;
     private RecyclerView applicationsView;
     private FloatingActionButton floatingActionButton;
+    private SwipeRefreshLayout swipeContainer;
 
 
     @Override
@@ -48,23 +49,50 @@ public class ApplicationsFragment extends Fragment {
 
             }
         });
-        loadApplicationsData();
+
+        // Swipe to Refresh
+        swipeContainer = view.findViewById(R.id.swipeContainer);
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadDataToRecyclerView();
+            }
+        });
+        // Refreshing colors
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_purple,
+                android.R.color.holo_red_dark,
+                android.R.color.holo_red_light);
+
+        loadDataToRecyclerView();
 
         return view;
     }
 
-    void loadApplicationsData() {
+    void loadDataToRecyclerView() {
+        // Data gets loaded
+        // This is a sync call
         DataProvider.getInstance().getApplcationsData(getActivity(), new DataProvider.OnResponse<Application[]>() {
-            @Override
-            public void execute(Application[] data) {
-                RecyclerView.Adapter applicationsListAdapter = new ApplicationsListAdapter(data, ApplicationsFragment.this.getActivity());
-                applicationsView.setAdapter(applicationsListAdapter);
 
-                if (snackbar.isShown())
-                    snackbar.dismiss();
-            }
-        });
+                    public void execute(Application[] data) {
+
+                        // This code executes when data is loaded from network
+                        // Loads data to recycler view
+                        RecyclerView.Adapter applicationsListAdapter = new ApplicationsListAdapter(data, ApplicationsFragment.this.getActivity());
+                        applicationsView.setAdapter(applicationsListAdapter);
+
+                        // Task finished
+                        if (snackbar.isShown())
+                            snackbar.dismiss();
+
+                        // Dismiss SwipeContainer
+                        if (swipeContainer.isRefreshing())
+                            swipeContainer.setRefreshing(false);
+                    }
+                }
+        );
     }
+
 
     public void openUploadActivity() {
         Intent myIntent = new Intent(ApplicationsFragment.this.getActivity(), CreateApplication.class);
@@ -72,3 +100,4 @@ public class ApplicationsFragment extends Fragment {
     }
 
 }
+

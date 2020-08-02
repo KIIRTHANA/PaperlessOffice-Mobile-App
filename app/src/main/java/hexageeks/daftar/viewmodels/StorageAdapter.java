@@ -74,6 +74,20 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHold
                 downloadFileFromUrl(holder.downloadBtn.getContext(), storageItem);
             }
         });
+
+        holder.shareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(Intent.ACTION_SEND);
+                myIntent.setType("text/plain");
+                String shareBody = "This document is exported from Dafter app";
+                String shareSubject = "Let's save the environment";
+                myIntent.putExtra(Intent.EXTRA_SUBJECT,shareSubject);
+                myIntent.putExtra(Intent.EXTRA_TEXT,shareBody);
+                context.startActivity(Intent.createChooser(myIntent,"Share using"));
+            }
+        });
+
     }
 
 
@@ -88,6 +102,7 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHold
         public TextView fileName;
         public TextView desc;
         public MaterialButton downloadBtn;
+        public MaterialButton shareBtn;
 
 
         public ViewHolder(View itemView) {
@@ -97,6 +112,7 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.ViewHold
             this.fileName = itemView.findViewById(R.id.storage_item_title);
             this.desc = itemView.findViewById(R.id.storage_item_description);
             this.downloadBtn = itemView.findViewById(R.id.storage_view_download_btn);
+            this.shareBtn = itemView.findViewById(R.id.storage_view_share_btn);
         }
     }
 }

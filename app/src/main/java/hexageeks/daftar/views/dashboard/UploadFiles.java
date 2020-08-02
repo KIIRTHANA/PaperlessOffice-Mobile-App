@@ -16,12 +16,15 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import hexageeks.daftar.R;
 import hexageeks.daftar.backend.DataProvider;
+import hexageeks.daftar.models.User;
 import hexageeks.daftar.utils.StorageUtils;
 
 public class UploadFiles extends AppCompatActivity {
@@ -42,6 +45,8 @@ public class UploadFiles extends AppCompatActivity {
 
     private String mimeType = null;
     private Uri fileUri = null;
+
+    private Boolean scan = false;
 
 
     @Override
@@ -75,6 +80,19 @@ public class UploadFiles extends AppCompatActivity {
             }
         });
 
+        if (User.getInstance().temp != null) {
+            File f = User.getInstance().temp;
+            Picasso.get().load(f).into(previewFile);
+            //scan = true;
+            User.getInstance().temp = null;
+
+            Uri uri = Uri.fromFile(f);
+            String mimeType = getContentResolver().getType(uri);
+            Log.d(TAG, "File Uri: " + uri.toString() + ", Mime Type: " + mimeType);
+
+            this.fileUri = uri;
+            this.mimeType = mimeType;
+        }
     }
 
     private void showFileChooser() {
@@ -148,7 +166,7 @@ public class UploadFiles extends AppCompatActivity {
         }
 
         DataProvider.getInstance().addDocument(this, nameField.getText().toString(),
-                descField.getText().toString(), visibility, inputStream, mimeType, fileUri,
+                descField.getText().toString(), visibility, inputStream, mimeType, fileUri, scan,
                 new DataProvider.OnFinished() {
                     @Override
                     public void execute() {

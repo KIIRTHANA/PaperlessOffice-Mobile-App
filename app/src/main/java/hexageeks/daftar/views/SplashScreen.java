@@ -53,7 +53,7 @@ public class SplashScreen extends AppCompatActivity {
                                 response.getString("last_name"), response.getString("dob"),
                                 response.getString("role"), token);
 
-                        Intent dashboardIntent = new Intent(getApplicationContext(), Dashboard.class);
+                        Intent dashboardIntent = new Intent(getApplicationContext(), PinActivity.class);
                         startActivity(dashboardIntent);
                         finish();
 

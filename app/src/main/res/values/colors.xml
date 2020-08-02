@@ -63,6 +63,7 @@
     <color name="details_attr">#F5F0F0</color>
     <color name="authorities_check_list">#B142E0</color>
 
+    <color name="black_overlay">#66000000</color>
 
 
 </resources>

@@ -23,6 +23,7 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
@@ -38,5 +39,5 @@ dependencies {
     // Custom Libraries
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.android.support:design:28.0.0'
-
+    implementation 'com.github.GoodieBag:Pinview:v1.4'
 }

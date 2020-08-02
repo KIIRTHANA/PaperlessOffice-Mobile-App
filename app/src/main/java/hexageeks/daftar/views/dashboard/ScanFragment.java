@@ -1,6 +1,9 @@
 package hexageeks.daftar.views.dashboard;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,18 +33,25 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 import androidx.fragment.app.Fragment;
 import hexageeks.daftar.R;
+import hexageeks.daftar.backend.DataProvider;
+import hexageeks.daftar.models.User;
 
 public class ScanFragment extends Fragment {
 
     private int REQUEST_CODE_PERMISSIONS = 10; //arbitrary number, can be changed accordingly
     private final String[] REQUIRED_PERMISSIONS = new String[]{"android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.READ_EXTERNAL_STORAGE"}; //array w/ permissions from manifest
     TextureView txView;
+    ProgressBar progress;
     View view;
 
     @Override
@@ -49,6 +59,7 @@ public class ScanFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_scan, container, false);
 
         txView = view.findViewById(R.id.camera_view);
+        progress = view.findViewById(R.id.scan_pb);
 
         if(allPermissionsGranted()){
         startCamera(); //start camera if permission has been granted by user
@@ -97,12 +108,33 @@ public class ScanFragment extends Fragment {
         view.findViewById(R.id.capture_doc).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                File file = new File(Environment.getExternalStorageDirectory() + "/" + System.currentTimeMillis() + ".jpg");
+                File file = new File(Environment.getExternalStorageDirectory() + "/scanned.jpg");
                 imgCap.takePicture(file, new ImageCapture.OnImageSavedListener() {
                     @Override
                     public void onImageSaved(@NonNull File file) {
-                        String msg = "Photo capture succeeded: " + file.getAbsolutePath();
-                        Toast.makeText(view.getContext(), msg,Toast.LENGTH_LONG).show();
+                        Log.v("SCAN", "Start");
+                        progress.setVisibility(View.VISIBLE);
+
+                        Uri uri = Uri.fromFile(file);
+                        InputStream inputStream = null;
+
+                        try {
+                            inputStream = view.getContext().getContentResolver().openInputStream(uri);
+                        } catch (FileNotFoundException e) {
+                            Log.e("SCAN", "Error Getting Input Stream from Uri");
+                            return;
+                        }
+
+                        //DataProvider.getInstance().scanDocument(view.getContext(), inputStream, uri,
+                        //new DataProvider.OnFinished() {
+                            //@Override
+                            //public void execute() {
+                                Log.v("SCAN", "Complete");
+                        Intent i = new Intent(view.getContext(), UploadFiles.class);
+                        User.getInstance().temp = file;
+                        view.getContext().startActivity(i);
+                         //   }
+                        //});
                     }
 
                     @Override

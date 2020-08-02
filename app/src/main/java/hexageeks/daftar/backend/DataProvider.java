@@ -3,6 +3,8 @@ package hexageeks.daftar.backend;
 import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -14,11 +16,14 @@ import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
@@ -113,7 +118,7 @@ public class DataProvider {
 
     public void addDocument(final Context context, final String fileName, final String desc,
                             final String visibility, final InputStream inputStream,
-                            final String mimetype, final Uri uri, final DataProvider.OnFinished r) {
+                            final String mimetype, final Uri uri, final Boolean scan, final DataProvider.OnFinished r) {
 
         final VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST, host + "/storage", new Response.Listener<NetworkResponse>() {
             @Override
@@ -146,6 +151,9 @@ public class DataProvider {
                 params.put("fileName", fileName);
                 params.put("fileDescription", desc);
                 params.put("visibility", visibility);
+                if (scan) {
+                    params.put("scan", "true");
+                }
 
                 return params;
             }
@@ -522,6 +530,72 @@ public class DataProvider {
         };
 
         queue.add(sendReq);
+
+    }
+
+    public void scanDocument(final Context context, final InputStream inputStream, final Uri uri, final DataProvider.OnFinished r) {
+        final VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST, host + "/scanner", new Response.Listener<NetworkResponse>() {
+            @Override
+            public void onResponse(NetworkResponse response) {
+                if (response.statusCode == 200) {
+                    Log.i(TAG, "Added New Document");
+                    r.execute();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                NetworkResponse networkResponse = error.networkResponse;
+                String errorMessage = "Unknown error";
+                if (networkResponse == null) {
+                    if (error.getClass().equals(TimeoutError.class)) {
+                        errorMessage = "Request timeout";
+                    } else if (error.getClass().equals(NoConnectionError.class)) {
+                        errorMessage = "Failed to connect server";
+                    }
+                } else {
+                    String result = new String(networkResponse.data);
+                    Log.v(TAG, result);
+                }
+                Log.i("Error", errorMessage);
+                error.printStackTrace();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("fileExt", "jpg");
+                //params.put("fileDescription", desc);
+                //params.put("visibility", visibility);
+
+                return params;
+            }
+
+            @Override
+            protected Map<String, DataPart> getByteData() {
+                Map<String, DataPart> params = new HashMap<>();
+                try {
+                    params.put("file", new DataPart("data",
+                            StorageUtils.InputStreamToBytes(inputStream)));
+                } catch (IOException e) {
+                    Log.e(TAG, "Error Converting Input Stream to Bytes");
+                    e.printStackTrace();
+                }
+
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+
+                headers.put("Authorization", "Bearer " + User.instance.token);
+                return headers;
+            }
+        };
+
+        ServerRequestQueue.getInstance(context).getRequestQueue().add(multipartRequest);
+
 
     }
 

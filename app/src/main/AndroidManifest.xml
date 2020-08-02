@@ -2,23 +2,30 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="hexageeks.daftar">
 
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_app_icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_app_icon"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.dashboard.ApplicationForm"
+        <activity
+            android:name=".views.PinActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_pin"
+            android:parentActivityName=".views.LoginScreen"
+            android:theme="@style/FullscreenTheme"></activity>
+        <activity
+            android:name=".views.dashboard.ScannedDoc"
+            android:label="Scanned Document"
+            android:parentActivityName=".views.Dashboard" />
+        <activity
+            android:name=".views.dashboard.ApplicationForm"
             android:label="Submit Application"
-            android:parentActivityName=".views.dashboard.CreateApplication"></activity>
-        <activity android:name=".views.dashboard.CreateApplication"
+            android:parentActivityName=".views.dashboard.CreateApplication" />
+        <activity
+            android:name=".views.dashboard.CreateApplication"
             android:label="New Application"
-            android:parentActivityName=".views.Dashboard"/>
+            android:parentActivityName=".views.Dashboard" />
         <activity
             android:name=".views.dashboard.ViewApplication"
             android:label="View Application"
@@ -48,5 +55,10 @@
             android:label="Upload Documents"
             android:parentActivityName=".views.Dashboard" />
     </application>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>

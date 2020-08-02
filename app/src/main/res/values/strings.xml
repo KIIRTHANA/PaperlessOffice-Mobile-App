@@ -8,5 +8,9 @@
     <string name="search_menu">search menu</string>
     <string name="application_name_view">Application Name</string>
 
+    <string name="title_activity_pin">PinActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
 
 </resources>

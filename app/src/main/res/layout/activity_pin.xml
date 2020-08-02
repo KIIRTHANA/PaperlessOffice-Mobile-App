@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#43A047"
+    tools:context=".views.PinActivity">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="211dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/lock_24px" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Please enter PIN to continue :"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <com.goodiebag.pinview.Pinview
+            android:layout_marginTop="20dp"
+            android:id="@+id/pinview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:pinWidth="40dp"
+            app:pinHeight="40dp"
+            app:pinLength="6"
+            app:cursorVisible="false"
+            app:forceKeyboard="false"
+            app:hint="0"
+            app:inputType="number"
+            app:password="true">
+
+        </com.goodiebag.pinview.Pinview>
+
+        <Button
+            android:id="@+id/verify_pin"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00897B"
+            android:backgroundTint="#00ACC1"
+            android:text="Verify" />
+    </LinearLayout>
+
+</FrameLayout>

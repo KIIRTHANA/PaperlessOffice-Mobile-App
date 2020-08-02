@@ -1,5 +1,7 @@
 package hexageeks.daftar.models;
 
+import java.io.File;
+
 public class User {
     public String id;
     public String fName;
@@ -10,6 +12,7 @@ public class User {
     public String selectedDoc;
     public String selectedApp;
     public ApplicationTemplate selectedTemplate;
+    public File temp;
 
     public static User instance = null;
 

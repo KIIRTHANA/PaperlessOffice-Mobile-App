@@ -105,6 +105,9 @@ public class ApplicationForm extends AppCompatActivity {
         }
 
         q.setText(question);
+
+        q.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
         a.setTag(question);
         formLayout.addView(l);
     }

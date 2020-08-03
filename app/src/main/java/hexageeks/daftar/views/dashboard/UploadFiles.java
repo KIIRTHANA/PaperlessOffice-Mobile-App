@@ -9,6 +9,7 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -46,7 +47,7 @@ public class UploadFiles extends AppCompatActivity {
     private String mimeType = null;
     private Uri fileUri = null;
 
-    private Boolean scan = false;
+    private CheckBox scan;
 
 
     @Override
@@ -65,7 +66,7 @@ public class UploadFiles extends AppCompatActivity {
         submitButton = findViewById(R.id.upload_doc_submit_btn);
         snackbar = Snackbar.make(findViewById(android.R.id.content),
                 "Uploading Your Document, Please wait...", Snackbar.LENGTH_INDEFINITE);
-
+        scan = findViewById(R.id.checkBox);
         selectFileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +84,7 @@ public class UploadFiles extends AppCompatActivity {
         if (User.getInstance().temp != null) {
             File f = User.getInstance().temp;
             Picasso.get().load(f).into(previewFile);
-            //scan = true;
+
             User.getInstance().temp = null;
 
             Uri uri = Uri.fromFile(f);
@@ -166,7 +167,7 @@ public class UploadFiles extends AppCompatActivity {
         }
 
         DataProvider.getInstance().addDocument(this, nameField.getText().toString(),
-                descField.getText().toString(), visibility, inputStream, mimeType, fileUri, scan,
+                descField.getText().toString(), visibility, inputStream, mimeType, fileUri, scan.isChecked(),
                 new DataProvider.OnFinished() {
                     @Override
                     public void execute() {

@@ -2,16 +2,12 @@ package hexageeks.daftar.viewmodels;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import com.google.android.material.button.MaterialButton;
 
 import java.text.SimpleDateFormat;
 
@@ -19,12 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import hexageeks.daftar.R;
 import hexageeks.daftar.models.Application;
 import hexageeks.daftar.models.User;
-import hexageeks.daftar.views.dashboard.ApplicationsFragment;
-import hexageeks.daftar.views.dashboard.DocDetails;
-import hexageeks.daftar.views.dashboard.StorageFragment;
 import hexageeks.daftar.views.dashboard.ViewApplication;
-
-import static hexageeks.daftar.utils.StorageUtils.downloadFileFromUrl;
 
 
 public class ApplicationsListAdapter extends RecyclerView.Adapter<ApplicationsListAdapter.ViewHolder>{
@@ -54,18 +45,18 @@ public class ApplicationsListAdapter extends RecyclerView.Adapter<ApplicationsLi
         holder.stageProgress.setProgress((int)(((float) application.getStage())/application.getStages() * 100));
         holder.timestamp.setText(new SimpleDateFormat("MM/dd/yyyy hh:mm a").format(application.getTimestamp()));
 
-        if (application.getCreatorId().equals(User.getInstance().id)) {
+        //if (application.getCreatorId().equals(User.getInstance().id)) {
             // Creator
 
-            holder.additionalText.setText("Waiting for " + application.getAssignedName());
-            holder.openBtn.setText("View");
-        } else {
+        holder.additionalText.setText("Waiting for " + application.getAssignedName());
+        holder.openBtn.setText("View");
+        //} else {
             // Authority
 
-            holder.stageProgress.setProgressTintList(holder.itemView.getResources().getColorStateList(R.color.colorPrimary));
-            holder.additionalText.setText("Created by " + application.getCreatorName());
-            holder.openBtn.setText("Sign");
-        }
+        //    holder.stageProgress.setProgressTintList(holder.itemView.getResources().getColorStateList(R.color.colorPrimary));
+        //    holder.additionalText.setText("Created by " + application.getCreatorName());
+        //    holder.openBtn.setText("Sign");
+        //}
 
         holder.openBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,10 +66,7 @@ public class ApplicationsListAdapter extends RecyclerView.Adapter<ApplicationsLi
                 context.startActivity(intent);
             }
         });
-
-
     }
-
 
     @Override
     public int getItemCount() {

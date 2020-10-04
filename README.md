@@ -14,7 +14,7 @@ Pin authentication -
 
 Dashboard -
 
-<img src="https://i.ibb.co/nLZ6D6q/Whats-App-Image-2020-08-03-at-5-26-14-PM-3.jpg" width="200">
+<img src="https://i.ibb.co/8mrF2zw/Whats-App-Image-2020-08-03-at-5-26-14-PM-5.jpg" width="200">
 
 Scanning a document uaing camera -
 

@@ -6,32 +6,31 @@ Screenshots from the Android App.
 
 Login Screen-
 
-<img src="https://i.ibb.co/VC9tGXZ/Whats-App-Image-2020-10-04-at-6-12-36-PM.jpg" width="100">
-
+<img src="https://i.ibb.co/VC9tGXZ/Whats-App-Image-2020-10-04-at-6-12-36-PM.jpg" width="200"> 
 
 Pin authentication -
 
-![alt text](https://i.ibb.co/nLZ6D6q/Whats-App-Image-2020-08-03-at-5-26-14-PM-3.jpg)
+<img src="https://i.ibb.co/nLZ6D6q/Whats-App-Image-2020-08-03-at-5-26-14-PM-3.jpg" width="200">
 
 Dashboard -
 
-![alt text](https://i.ibb.co/nLZ6D6q/Whats-App-Image-2020-08-03-at-5-26-14-PM-3.jpg)
+<img src="https://i.ibb.co/nLZ6D6q/Whats-App-Image-2020-08-03-at-5-26-14-PM-3.jpg" width="200">
 
 Scanning a document uaing camera -
 
-![alt text](https://i.ibb.co/m5GjxqR/Whats-App-Image-2020-08-03-at-5-26-23-PM.jpg)
+<img src="https://i.ibb.co/m5GjxqR/Whats-App-Image-2020-08-03-at-5-26-23-PM.jpg" width="200">
 
 Uploading a document from storage -
 
-![alt text](https://i.ibb.co/G3Zg3cL/Whats-App-Image-2020-08-03-at-5-26-14-PM-4.jpg)
+<img src="https://i.ibb.co/G3Zg3cL/Whats-App-Image-2020-08-03-at-5-26-14-PM-4.jpg" width="200">
 
 Applying for a new application through app -
 
-![alt text](https://i.ibb.co/kQXtr0v/Whats-App-Image-2020-08-03-at-5-26-14-PM-1.jpg)
+<img src="https://i.ibb.co/kQXtr0v/Whats-App-Image-2020-08-03-at-5-26-14-PM-1.jpg" width="200">
 
 Choose Application -> Fill Form : (Sample form)
 
-![alt text](https://i.ibb.co/BqYFTfM/Whats-App-Image-2020-08-03-at-5-26-14-PM.jpg)
+<img src="https://i.ibb.co/BqYFTfM/Whats-App-Image-2020-08-03-at-5-26-14-PM.jpg" width="200">
 
 
 

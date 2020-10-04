@@ -16,7 +16,7 @@ Dashboard -
 
 <img src="https://i.ibb.co/8mrF2zw/Whats-App-Image-2020-08-03-at-5-26-14-PM-5.jpg" width="200">
 
-Scanning a document uaing camera -
+Scanning a document using camera -
 
 <img src="https://i.ibb.co/m5GjxqR/Whats-App-Image-2020-08-03-at-5-26-23-PM.jpg" width="200">
 

@@ -6,7 +6,8 @@ Screenshots from the Android App.
 
 Login Screen-
 
-![alt text](https://i.ibb.co/VC9tGXZ/Whats-App-Image-2020-10-04-at-6-12-36-PM.jpg =30x10)
+![github-small](https://i.ibb.co/VC9tGXZ/Whats-App-Image-2020-10-04-at-6-12-36-PM.jpg){:height="50%" width="50%"}
+
 
 Pin authentication -
 
